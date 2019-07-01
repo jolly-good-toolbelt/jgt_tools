@@ -10,9 +10,28 @@ from ..utils import CONFIGS
 
 BASE_DIR = CONFIGS["base_dir"]
 PACKAGE_NAME = CONFIGS["package_name"]
+DOC_BUILD_TYPES = CONFIGS["doc_build_types"]
 
 DOCS_OUTPUT_DIRECTORY = "docs"
 DOCS_WORKING_DIRECTORY = "_docs"
+
+
+def _api():
+    sphinx_apidoc_cmd = [
+        "poetry",
+        "run",
+        "sphinx-apidoc",
+        "--output-dir",
+        DOCS_WORKING_DIRECTORY,
+        "--no-toc",
+        "--force",
+        "--module-first",
+    ]
+    print(f"Building {PACKAGE_NAME} API docs")
+    subprocess.check_call(sphinx_apidoc_cmd + [PACKAGE_NAME], cwd=BASE_DIR)
+
+
+BUILDERS = {"api": _api}
 
 
 def build():
@@ -39,21 +58,14 @@ def build():
     args = parser.parse_args()
 
     if args.clean:
-        shutil.rmtree(DOCS_OUTPUT_DIRECTORY, ignore_errors=True)
-        shutil.rmtree(DOCS_WORKING_DIRECTORY, ignore_errors=True)
+        shutil.rmtree(str(BASE_DIR / DOCS_OUTPUT_DIRECTORY), ignore_errors=True)
+        shutil.rmtree(str(BASE_DIR / DOCS_WORKING_DIRECTORY), ignore_errors=True)
 
-    sphinx_apidoc_cmd = [
-        "poetry",
-        "run",
-        "sphinx-apidoc",
-        "--output-dir",
-        DOCS_WORKING_DIRECTORY,
-        "--no-toc",
-        "--force",
-        "--module-first",
-    ]
-    print(f"Building {PACKAGE_NAME} API docs")
-    subprocess.check_call(sphinx_apidoc_cmd + [PACKAGE_NAME], cwd=BASE_DIR)
+    for builder in DOC_BUILD_TYPES:
+        if builder not in BUILDERS:
+            print(f'No builder for value "{builder}" defined!')
+            exit(1)
+        BUILDERS[builder]()
 
     # Copy over all the top level rST files so we don't
     # have to keep a duplicate list here.
