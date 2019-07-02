@@ -4,7 +4,6 @@ import csv
 from pathlib import Path
 import shlex
 import subprocess
-import sys
 
 import tomlkit
 
@@ -27,7 +26,7 @@ _DEFAULT_CONFIGS: defaultdict = defaultdict(list)
 def _load_defaults():
     with open("data/defaults.csv") as f:
         for group, cmd in csv.reader(f):
-            _DEFAULT_CONFIGS[group].append(cmd.replace("python", sys.executable))
+            _DEFAULT_CONFIGS[group].append(cmd)
 
 
 _load_defaults()
