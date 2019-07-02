@@ -103,8 +103,7 @@ if not base_url:
     if "GIT_ORIGIN_URL" not in os.environ:
         base_url = ""  # If this is non-empty, sphinx will make it clickable.
     else:
-        owner_name = os.path.splitext(
-            os.environ.get("GIT_ORIGIN_URL", "").split(":")[1]
-        )[0]
+        owner_name = os.environ["GIT_ORIGIN_URL"].split(":")[1].rsplit(".", 1)[0]
+        owner_name = "/".join(owner_name.split("/")[-2:])
         base_url = f"https://github.com/{owner_name}/tree/{commit_id}"
 html_context = {"build_id": commit_id, "build_url": base_url}
