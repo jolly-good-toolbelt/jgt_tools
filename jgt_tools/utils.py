@@ -1,4 +1,6 @@
 """Shared util functions."""
+from collections import defaultdict
+import csv
 from pathlib import Path
 import shlex
 import subprocess
@@ -19,16 +21,16 @@ def execute_command_list(commands_to_run, verbose=True):
         subprocess.run(shlex.split(command), check=True)
 
 
-_DEFAULT_CONFIGS = {
-    "env_setup_commands": [
-        "pip install --upgrade pip<19",
-        "poetry install",
-        "pre-commit install",
-    ],
-    "self_check_commands": ["pre-commit run -a"],
-    "run_tests_commands": [f"{sys.executable} -m pytest"],
-    "doc_build_types": ["api"],
-}
+_DEFAULT_CONFIGS: defaultdict = defaultdict(list)
+
+
+def _load_defaults():
+    with open("data/defaults.csv") as f:
+        for group, cmd in csv.reader(f):
+            _DEFAULT_CONFIGS[group].append(cmd.replace("python", sys.executable))
+
+
+_load_defaults()
 
 
 def load_configs():
