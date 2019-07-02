@@ -20,7 +20,7 @@ Details for each script can be found by calling with the ``--help`` flag.
 Default values for each are:
 
 .. csv-table:: Default Command values
-   :header: "Command Set", "Command"
+   :header: "Configuration Key", "Command"
    :file: ../data/defaults.csv
 
 Configuration
