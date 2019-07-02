@@ -1,14 +1,12 @@
 """Configure sphinx for package doc publication."""
 import os
+from pathlib import Path
 
 import tomlkit
 
 PYPROJECT_FILE = "pyproject.toml"
 EXPLANATION = "- needed to extract version information."
-file_path = os.path.join(
-    os.path.abspath(os.path.join(__file__, os.path.pardir, os.path.pardir)),
-    PYPROJECT_FILE,
-)
+file_path = Path(__file__).parents[1] / PYPROJECT_FILE
 
 try:
     with open(file_path) as f:

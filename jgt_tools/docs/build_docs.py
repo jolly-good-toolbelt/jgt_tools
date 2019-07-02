@@ -1,7 +1,7 @@
 """Build the documentation for a package."""
 import argparse
-import glob
 import os
+from pathlib import Path
 import shutil
 import subprocess
 
@@ -69,13 +69,13 @@ def build():
 
     # Copy over all the top level rST files so we don't
     # have to keep a duplicate list here.
-    for filename in glob.iglob("*.rst"):
+    for filename in Path().glob("*.rst"):
         shutil.copy(filename, DOCS_WORKING_DIRECTORY)
 
-    for filename in glob.iglob(os.path.join("sphinx_docs", "*")):
+    for filename in Path("sphinx_docs").glob("*"):
         shutil.copy(filename, DOCS_WORKING_DIRECTORY)
 
-    os.environ["PYTHONPATH"] = os.path.curdir
+    os.environ["PYTHONPATH"] = str(Path.cwd())
     subprocess.check_call(
         [
             "poetry",
