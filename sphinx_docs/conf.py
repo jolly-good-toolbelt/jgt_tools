@@ -97,13 +97,38 @@ import sphinx_rtd_theme  # noqa
 html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
+
+def _owner_name_from(origin_url):
+    """
+    Extract the owner name from a git origin URL.
+
+    The git origin URL might be in ``git+ssh`` form, or ``https`` form.
+
+    Args:
+        origin_url (str): Origin URL from `git`
+
+    Returns:
+        str: A slash-separated string containing the organization / owner and repository
+
+    Examples:
+        >>> owner_name_from("git@github.com:jolly-good-toolbelt/jgt_tools.git")
+        "jolly-good-toolbelt/jgt_tools"
+        >>> owner_name_from("https://github.com/jolly-good-toolbelt/jgt_tools.git")
+        "jolly-good-toolbelt/jgt_tools"
+
+    """
+    if not origin_url:
+        return ""
+    owner_name = origin_url.split(":")[1]  # Remove method portion
+    owner_name = owner_name.rsplit(".", 1)[0]  # Remove `.git`
+    # Keep only the last two parts that remain, which are the org/owner and repo name
+    return "/".join(owner_name.split("/")[-2:])
+
+
 commit_id = os.environ.get("ghprbPullId") or os.environ.get("GIT_COMMIT_ID")
-base_url = os.environ.get("ghprbPullLink")
+base_url = os.environ.get("ghprbPullLink") or ""
 if not base_url:
-    if "GIT_ORIGIN_URL" not in os.environ:
-        base_url = ""  # If this is non-empty, sphinx will make it clickable.
-    else:
-        owner_name = os.environ["GIT_ORIGIN_URL"].split(":")[1].rsplit(".", 1)[0]
-        owner_name = "/".join(owner_name.split("/")[-2:])
+    owner_name = _owner_name_from(os.environ.get("GIT_ORIGIN_URL", ""))
+    if owner_name:
         base_url = f"https://github.com/{owner_name}/tree/{commit_id}"
 html_context = {"build_id": commit_id, "build_url": base_url}
