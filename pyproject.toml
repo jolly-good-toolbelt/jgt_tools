@@ -1,9 +1,12 @@
 [tool.poetry]
 name = "jgt_tools"
-version = "0.1.0"
+version = "0.1.1"
 description = "A collection of tools for commmon package scripts"
 authors = ["Brad Brown <brad.brown@rackspace.com>"]
 license = "MIT"
+homepage = "https://jolly-good-toolbelt.github.io/jgt_tools/"
+documentation = "https://jolly-good-toolbelt.github.io/jgt_tools/"
+repository = "https://github.com/jolly-good-toolbelt/jgt_tools"
 
 [tool.poetry.dependencies]
 python = "^3.6"
