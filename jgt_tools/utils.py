@@ -16,7 +16,7 @@ def execute_command_list(commands_to_run, verbose=True):
     """
     for command in commands_to_run:
         if verbose:
-            print(command)
+            print(f"+{command}")
         subprocess.run(shlex.split(command), check=True)
 
 
