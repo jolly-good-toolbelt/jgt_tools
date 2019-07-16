@@ -13,6 +13,7 @@ python = "^3.6"
 tomlkit = "^0.5.3"
 
 [tool.poetry.dev-dependencies]
+pre-commit = "^1.15"
 flake8 = "^3.7"
 flake8-builtins = "^1.4"
 flake8-comprehensions = "^2.1"
