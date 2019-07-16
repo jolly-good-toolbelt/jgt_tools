@@ -24,7 +24,8 @@ _DEFAULT_CONFIGS: defaultdict = defaultdict(list)
 
 
 def _load_defaults():
-    with open("data/defaults.csv") as f:
+    defaults = Path(__file__).parent / "data" / "defaults.csv"
+    with defaults.open() as f:
         for group, cmd in csv.reader(f):
             _DEFAULT_CONFIGS[group].append(cmd)
 

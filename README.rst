@@ -21,7 +21,7 @@ Default values for each are:
 
 .. csv-table:: Default Command values
    :header: "Configuration Key", "Command"
-   :file: ../data/defaults.csv
+   :file: ../jgt_tools/data/defaults.csv
 
 Configuration
 -------------
