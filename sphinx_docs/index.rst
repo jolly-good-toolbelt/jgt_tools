@@ -3,6 +3,15 @@
 Beyond The Quick Start
 ======================
 
+Default Command Values
+======================
+
+Default values for each are:
+
+.. csv-table:: Default Command values
+   :header: "Configuration Key", "Command"
+   :file: ../jgt_tools/data/defaults.csv
+
 
 JGT Tools - What It Does
 ==================================
