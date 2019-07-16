@@ -17,12 +17,6 @@ Just include ``jgt_tools`` in your package VirtualEnv, and you'll have access to
 
 Details for each script can be found by calling with the ``--help`` flag.
 
-Default values for each are:
-
-.. csv-table:: Default Command values
-   :header: "Configuration Key", "Command"
-   :file: ../jgt_tools/data/defaults.csv
-
 Configuration
 -------------
 
