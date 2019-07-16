@@ -8,6 +8,9 @@ import subprocess
 import tomlkit
 
 
+DEFAULTS_FILE = Path(__file__).parent / "data" / "defaults.csv"
+
+
 def execute_command_list(commands_to_run, verbose=True):
     """
     Execute each command in the list.
@@ -24,8 +27,7 @@ _DEFAULT_CONFIGS: defaultdict = defaultdict(list)
 
 
 def _load_defaults():
-    defaults = Path(__file__).parent / "data" / "defaults.csv"
-    with defaults.open() as f:
+    with DEFAULTS_FILE.open() as f:
         for group, cmd in csv.reader(f):
             _DEFAULT_CONFIGS[group].append(cmd)
 
