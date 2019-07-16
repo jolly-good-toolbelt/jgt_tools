@@ -2,7 +2,7 @@
 name = "jgt_tools"
 version = "0.1.2"
 description = "A collection of tools for commmon package scripts"
-authors = ["Brad Brown <brad.brown@rackspace.com>"]
+authors = ["Brad Brown <brad@bradsbrown.com>"]
 license = "MIT"
 readme = "README.rst"
 homepage = "https://jolly-good-toolbelt.github.io/jgt_tools/"
