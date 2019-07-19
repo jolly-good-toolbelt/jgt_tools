@@ -33,7 +33,7 @@ Available values are:
 
 For example::
 
-    [tools.jgt_tools]
+    [tool.jgt_tools]
     env_setup_commands = [
         "poetry install",
         "poetry run pip install other_package",
