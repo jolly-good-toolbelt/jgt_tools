@@ -1,4 +1,5 @@
 """Ensure version bump."""
+import pkg_resources
 import subprocess
 
 
@@ -20,6 +21,12 @@ def check_version():
         ["git", "diff", "master", "pyproject.toml"], universal_newlines=True
     )
 
-    if _any_py_files_changed(changed_files) and not _version_changed(pyproject_diff):
+    check_file_changes = _any_py_files_changed
+    for entry in pkg_resources.iter_entry_points("file_checkers"):
+        if entry.name == "version_trigger":
+            check_file_changes = entry.load()
+            break
+
+    if check_file_changes(changed_files) and not _version_changed(pyproject_diff):
         print("Code files changed with no corresponding version bump!")
         exit(1)
