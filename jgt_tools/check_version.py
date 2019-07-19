@@ -3,13 +3,7 @@ import subprocess
 import os
 
 
-class MissingVersionBumpException(Exception):
-    """Exception for a code change without a version change."""
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(
-            "Code files changed with no corresponding version bump!", *args, **kwargs
-        )
+MISSING_VERSION_BUMP_MSG = "Code files changed with no corresponding version bump!"
 
 
 def _any_py_files_changed(file_names):
@@ -45,7 +39,8 @@ def travis_check_version():
     if _any_py_files_changed([f.name for f in files]) and not _version_changed(
         pyproject_diff
     ):
-        raise MissingVersionBumpException()
+        print(MISSING_VERSION_BUMP_MSG)
+        exit(1)
 
 
 def local_check_version():
@@ -59,7 +54,8 @@ def local_check_version():
     )
 
     if _any_py_files_changed(changed_files) and not _version_changed(pyproject_diff):
-        raise MissingVersionBumpException()
+        print(MISSING_VERSION_BUMP_MSG)
+        exit(1)
 
 
 def check_version():
