@@ -11,7 +11,7 @@ before_install:
 install:
 - "./env_setup.py"
 script:
-- poetry run self-check
+- poetry run self-check --check-version
 - poetry run build-docs
 before_deploy:
 - poetry config http-basic.pypi $PYPI_USER $PYPI_PASS
