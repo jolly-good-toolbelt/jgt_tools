@@ -2,6 +2,8 @@
 import subprocess
 import os
 
+import github3
+
 
 MISSING_VERSION_BUMP_MSG = "Code files changed with no corresponding version bump!"
 
@@ -16,12 +18,6 @@ def _version_changed(pyproject_diff):
 
 def travis_check_version():
     """Verify the version is changed if any code files are changed."""
-
-    try:
-        import github3
-    except ImportError:
-        print("Required packages not present for version check.")
-        exit(1)
 
     token = os.getenv("GH_TOKEN")
     if not token:
