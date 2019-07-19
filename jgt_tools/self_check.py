@@ -15,6 +15,7 @@ import argparse
 
 from .utils import execute_command_list, CONFIGS
 from .env_setup import env_setup
+from .check_version import check_version
 
 
 __commands_to_run = CONFIGS["self_check_commands"]
@@ -22,12 +23,15 @@ __commands_to_run = CONFIGS["self_check_commands"]
 __doc__ = __doc__.format("\n    ".join(__commands_to_run))
 
 
-def self_check(do_setup=False, verbose=True):
+def self_check(do_setup=False, do_version_check=False, verbose=True):
     """Run code checks."""
     if do_setup:
         env_setup(verbose)
 
     execute_command_list(__commands_to_run, verbose=verbose)
+
+    if do_version_check:
+        check_version()
 
 
 def main():
@@ -38,7 +42,12 @@ def main():
     parser.add_argument(
         "--setup",
         action="store_true",
-        help='run "./env_setup.py" before running self checks',
+        help='run "env-setup" before running self checks',
+    )
+    parser.add_argument(
+        "--check-version",
+        action="store_true",
+        help='run "check-version" after running self-checks',
     )
     parser.add_argument(
         "-q",
@@ -48,4 +57,6 @@ def main():
     )
     args = parser.parse_args()
 
-    self_check(do_setup=args.setup, verbose=not args.quiet)
+    self_check(
+        do_setup=args.setup, do_version_check=args.check_version, verbose=not args.quiet
+    )
