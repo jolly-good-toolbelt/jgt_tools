@@ -1,11 +1,15 @@
 """Build the documentation for a package."""
 import argparse
+import email.utils
+import itertools
 import os
 from pathlib import Path
 import shutil
 import subprocess
+import time
 
-from ..utils import CONFIGS
+from ..utils import CONFIGS, get_pyproject_config
+from .sample_conf import CONF_PY, MARKDOWN, TYPE_HINTS
 
 
 BASE_DIR = CONFIGS["base_dir"]
@@ -29,6 +33,29 @@ def _api():
     ]
     print(f"Building {PACKAGE_NAME} API docs")
     subprocess.check_call(sphinx_apidoc_cmd + [PACKAGE_NAME], cwd=BASE_DIR)
+
+
+def _build_conf():
+    docs_dir = BASE_DIR / DOCS_WORKING_DIRECTORY
+    docs_dir.mkdir(exist_ok=True)
+
+    pyproject = get_pyproject_config()
+    poetry = pyproject["tool"]["poetry"]
+
+    dependencies = list(
+        itertools.chain(poetry["dependencies"], poetry["dev-dependencies"])
+    )
+
+    conf = CONF_PY.format(
+        name=f"{poetry['name']} - {poetry['description']}",
+        authors=", ".join(email.utils.parseaddr(x)[0] for x in poetry["authors"]),
+        year=time.strftime("%Y"),
+        type_hints=TYPE_HINTS if "sphinx-autodoc-typehints" in dependencies else "",
+        version=poetry["version"],
+        markdown=MARKDOWN if "recommonmark" in dependencies else "",
+    )
+
+    (docs_dir / "conf.py").write_text(conf)
 
 
 BUILDERS = {"api": _api}
@@ -60,6 +87,8 @@ def build():
     if not args.dirty:
         shutil.rmtree(str(BASE_DIR / DOCS_OUTPUT_DIRECTORY), ignore_errors=True)
         shutil.rmtree(str(BASE_DIR / DOCS_WORKING_DIRECTORY), ignore_errors=True)
+
+    _build_conf()
 
     for builder in DOC_BUILD_TYPES:
         if builder not in BUILDERS:
