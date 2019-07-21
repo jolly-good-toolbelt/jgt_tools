@@ -84,3 +84,30 @@ def load_configs():
 
 
 CONFIGS = load_configs()
+
+
+def owner_name_from(origin_url):
+    """
+    Extract the owner name from a git origin URL.
+
+    The git origin URL might be in ``git+ssh`` form, or ``https`` form.
+
+    Args:
+        origin_url (str): Origin URL from `git`
+
+    Returns:
+        str: A slash-separated string containing the organization / owner and repository
+
+    Examples:
+        >>> owner_name_from("git@github.com:jolly-good-toolbelt/jgt_tools.git")
+        "jolly-good-toolbelt/jgt_tools"
+        >>> owner_name_from("https://github.com/jolly-good-toolbelt/jgt_tools.git")
+        "jolly-good-toolbelt/jgt_tools"
+
+    """
+    if not origin_url:
+        return ""
+    owner_name = origin_url.split(":")[1]  # Remove method portion
+    owner_name = owner_name.rsplit(".", 1)[0]  # Remove `.git`
+    # Keep only the last two parts that remain, which are the org/owner and repo name
+    return "/".join(owner_name.split("/")[-2:])
