@@ -4,6 +4,7 @@ import csv
 from pathlib import Path
 import shlex
 import subprocess
+import sys
 
 import tomlkit
 
@@ -35,14 +36,24 @@ def _load_defaults():
 _load_defaults()
 
 
-def load_configs():
-    """Build configs from defaults and pyproject.toml."""
-    package_root_path = Path(
-        subprocess.check_output(
-            ["git", "rev-parse", "--show-toplevel"], universal_newlines=True
-        ).split("\n")[0]
-    )
-    pyproject_path = package_root_path / "pyproject.toml"
+def _get_package_root():
+    try:
+        return Path(
+            subprocess.check_output(
+                ["git", "rev-parse", "--show-toplevel"], universal_newlines=True
+            ).split("\n")[0]
+        )
+    except subprocess.CalledProcessError:
+        print("jgt_tools needs to be run from within a git repository")
+        sys.exit(1)
+
+
+PACKAGE_ROOT_PATH = _get_package_root()
+
+
+def get_pyproject_config():
+    """Get the config data from the project's pyproject.toml file."""
+    pyproject_path = PACKAGE_ROOT_PATH / "pyproject.toml"
     if not pyproject_path.exists():
         raise FileNotFoundError(
             f"Config file not found at: '{pyproject_path}' "
@@ -50,6 +61,12 @@ def load_configs():
         )
     with pyproject_path.open() as f:
         pyproject = tomlkit.loads(f.read())
+    return pyproject
+
+
+def load_configs():
+    """Build configs from defaults and pyproject.toml."""
+    pyproject = get_pyproject_config()
 
     poetry = pyproject["tool"]["poetry"]
     package_name = poetry["name"]
@@ -59,7 +76,7 @@ def load_configs():
         **_DEFAULT_CONFIGS,
         "package_name": package_name,
         "description": package_description,
-        "base_dir": package_root_path,
+        "base_dir": PACKAGE_ROOT_PATH,
     }
     if "jgt_tools" in pyproject["tool"]:
         configs = {**configs, **pyproject["tool"]["jgt_tools"]}
