@@ -101,8 +101,9 @@ def build():
     for filename in Path().glob("*.rst"):
         shutil.copy(filename, DOCS_WORKING_DIRECTORY)
 
-    for filename in Path("sphinx_docs").glob("*"):
-        shutil.copy(filename, DOCS_WORKING_DIRECTORY)
+    shutil.copy(
+        BASE_DIR / ".jgt_tools.index", BASE_DIR / DOCS_WORKING_DIRECTORY / "index.rst"
+    )
 
     os.environ["PYTHONPATH"] = str(Path.cwd())
     subprocess.check_call(
