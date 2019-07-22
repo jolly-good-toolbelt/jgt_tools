@@ -1,7 +1,7 @@
 """Tests for sphinx_docs/conf.py."""
 import pytest
 
-import sphinx_docs.conf
+import jgt_tools.utils
 
 OWNER_NAME_LIST = [
     (
@@ -25,4 +25,4 @@ OWNER_NAME_LIST = [
 
 @pytest.mark.parametrize("origin_url,owner_name", OWNER_NAME_LIST)
 def test_owner_name_from(origin_url, owner_name):
-    assert sphinx_docs.conf._owner_name_from(origin_url) == owner_name
+    assert jgt_tools.utils.owner_name_from(origin_url) == owner_name
