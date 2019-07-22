@@ -64,16 +64,26 @@ BUILDERS = {"api": _api}
 def build():
     """Build the docs."""
     # Setup environment variables
-    commit_id = subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=BASE_DIR, universal_newlines=True
-    )
+    try:
+        commit_id = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"],
+            cwd=BASE_DIR,
+            universal_newlines=True,
+            stderr=subprocess.DEVNULL,
+        )
+    except subprocess.CalledProcessError:
+        commit_id = ""
     os.environ["GIT_COMMIT_ID"] = commit_id.rstrip("\n")
 
-    origin_url = subprocess.check_output(
-        ["git", "config", "--get", "remote.origin.url"],
-        cwd=BASE_DIR,
-        universal_newlines=True,
-    )
+    try:
+        origin_url = subprocess.check_output(
+            ["git", "config", "--get", "remote.origin.url"],
+            cwd=BASE_DIR,
+            universal_newlines=True,
+            stderr=subprocess.DEVNULL,
+        )
+    except subprocess.CalledProcessError:
+        origin_url = ""
     os.environ["GIT_ORIGIN_URL"] = origin_url.rstrip("\n")
 
     parser = argparse.ArgumentParser()
