@@ -21,7 +21,9 @@ def execute_command_list(commands_to_run, verbose=True):
     for command in commands_to_run:
         if verbose:
             print(f"+{command}")
-        subprocess.run(shlex.split(command), check=True)
+        job = subprocess.run(shlex.split(command))
+        if job.returncode:
+            sys.exit(job.returncode)
 
 
 _DEFAULT_CONFIGS: defaultdict = defaultdict(list)
