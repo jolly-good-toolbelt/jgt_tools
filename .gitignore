@@ -1,4 +1,4 @@
-docs/
+/docs/
 _docs/
 dist/
 .mypy_cache/
