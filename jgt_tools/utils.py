@@ -31,7 +31,9 @@ _DEFAULT_CONFIGS: defaultdict = defaultdict(list)
 
 def _load_defaults():
     with DEFAULTS_FILE.open() as f:
-        for group, cmd in csv.reader(f):
+        # Allow arbitrary comments to follow the command as columns,
+        # since CSV files don't have a comment to end of line feature.
+        for group, cmd, *comments in csv.reader(f):
             _DEFAULT_CONFIGS[group].append(cmd)
 
 

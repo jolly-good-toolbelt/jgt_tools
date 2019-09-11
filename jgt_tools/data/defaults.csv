@@ -1,6 +1,7 @@
 env_setup_commands,poetry run pip install --upgrade pip<19
 env_setup_commands,poetry install
 env_setup_commands,poetry run pre-commit install
+env_setup_commands,poetry run pre-commit autoupdate,in case of a pre-exsiting pre-commit environment that is stale
 self_check_commands,poetry run pre-commit run -a
 run_tests_commands,poetry run python -m pytest -vvv
 doc_build_types,api
