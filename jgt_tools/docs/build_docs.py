@@ -13,7 +13,7 @@ from .sample_conf import CONF_PY, MARKDOWN, TYPE_HINTS
 
 
 BASE_DIR = CONFIGS["base_dir"]
-PACKAGE_NAME = CONFIGS["package_name"]
+PACKAGE_NAME = CONFIGS["package_name"].replace("-", "_").replace(".", "_")
 DOC_BUILD_TYPES = CONFIGS["doc_build_types"]
 
 DOCS_OUTPUT_DIRECTORY = "docs"
