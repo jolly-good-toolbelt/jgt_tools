@@ -4,6 +4,7 @@ import email.utils
 import itertools
 import os
 from pathlib import Path
+import shlex
 import shutil
 import subprocess
 import time
@@ -12,27 +13,20 @@ from ..utils import CONFIGS, get_pyproject_config
 from .sample_conf import CONF_PY, MARKDOWN, TYPE_HINTS
 
 
+__commands_to_run = CONFIGS["build_docs_commands"]
 BASE_DIR = CONFIGS["base_dir"]
 PACKAGE_NAME = CONFIGS["package_name"].replace("-", "_").replace(".", "_")
-DOC_BUILD_TYPES = CONFIGS["doc_build_types"]
 
 DOCS_OUTPUT_DIRECTORY = "docs"
 DOCS_WORKING_DIRECTORY = "_docs"
 
 
-def _api():
-    sphinx_apidoc_cmd = [
-        "poetry",
-        "run",
-        "sphinx-apidoc",
-        "--output-dir",
-        DOCS_WORKING_DIRECTORY,
-        "--no-toc",
-        "--force",
-        "--module-first",
-    ]
+def _build_docs():
     print(f"Building {PACKAGE_NAME} API docs")
-    subprocess.check_call(sphinx_apidoc_cmd + [PACKAGE_NAME], cwd=BASE_DIR)
+    for command in __commands_to_run:
+        command = command.format(**globals())
+        print(command)
+        subprocess.check_call(shlex.split(command), cwd=BASE_DIR)
 
 
 def _build_conf():
@@ -56,9 +50,6 @@ def _build_conf():
     )
 
     (docs_dir / "conf.py").write_text(conf)
-
-
-BUILDERS = {"api": _api}
 
 
 def build():
@@ -100,11 +91,7 @@ def build():
 
     _build_conf()
 
-    for builder in DOC_BUILD_TYPES:
-        if builder not in BUILDERS:
-            print(f'No builder for value "{builder}" defined!')
-            exit(1)
-        BUILDERS[builder]()
+    _build_docs()
 
     # Copy over all the top level rST files so we don't
     # have to keep a duplicate list here.
