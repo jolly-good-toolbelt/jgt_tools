@@ -51,8 +51,8 @@ Available values are:
   under the ``self-check`` call
 - ``run_tests_commands`` - a list of commands to be run
   under the ``run-tests`` call
-- ``doc_build_types`` - a list of types for doc construction:
-  - ``api`` is currently the only supported option
+- ``build_docs_commands`` - a list of commands to be run
+  under the ``build-docs`` call
 
 For example::
 
@@ -62,10 +62,10 @@ For example::
         "poetry run pip install other_package",
         "./my_custom_setup_script.sh"
     ]
-    doc_build_types = []
+    build_docs_commands = []
 
 would run your specified commands for ``env-setup``
-and skip the ``api`` doc builder.
+and skip the default api doc builder.
 
 In addition,
 the function to verify which files are relevant to ``check-version``
