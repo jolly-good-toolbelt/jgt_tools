@@ -67,6 +67,33 @@ For example::
 would run your specified commands for ``env-setup``
 and skip the default api doc builder.
 
+build_docs_commands
+~~~~~~~~~~~~~~~~~~~
+
+Specifically for ``build_docs_commands``,
+there are some variables
+that can be used to aid in documentation building,
+using Python-style curly-brace formatting::
+
+    BASE_DIR: Root library directory
+    PACKAGE_NAME: Folder name containing package
+    DOCS_WORKING_DIRECTORY: Temporary directory where docs are built (needed for Sphinx)
+    DOCS_OUTPUT_DIRECTORY: Final directory where docs are saved
+
+For example::
+
+    [tool.jgt_tools]
+    build_docs_commands = [
+        "poetry run sphinx-apidoc --output-dir {DOCS_WORKING_DIRECTORY} --no-toc --force --module-first {PACKAGE_NAME}
+    ]
+
+builds the Sphinx API docs for the current package
+and stores the output files
+in the temporary working directory.
+
+check-version
+~~~~~~~~~~~~~
+
 In addition,
 the function to verify which files are relevant to ``check-version``
 can be customized.
