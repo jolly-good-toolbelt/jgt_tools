@@ -4,12 +4,11 @@ import email.utils
 import itertools
 import os
 from pathlib import Path
-import shlex
 import shutil
 import subprocess
 import time
 
-from ..utils import CONFIGS, get_pyproject_config
+from ..utils import CONFIGS, execute_command_list, get_pyproject_config
 from .sample_conf import CONF_PY, MARKDOWN, TYPE_HINTS
 
 
@@ -23,10 +22,7 @@ DOCS_WORKING_DIRECTORY = "_docs"
 
 def _build_docs():
     print(f"Building {PACKAGE_NAME} API docs")
-    for command in __commands_to_run:
-        command = command.format(**globals())
-        print(command)
-        subprocess.check_call(shlex.split(command), cwd=BASE_DIR)
+    execute_command_list([x.format(**globals()) for x in __commands_to_run])
 
 
 def _build_conf():
