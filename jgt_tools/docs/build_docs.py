@@ -7,6 +7,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import time
+import warnings
 
 from ..utils import CONFIGS, execute_command_list, get_pyproject_config
 from .sample_conf import CONF_PY, MARKDOWN, TYPE_HINTS
@@ -22,6 +23,16 @@ DOCS_WORKING_DIRECTORY = "_docs"
 
 def _build_docs():
     print(f"Building {PACKAGE_NAME} API docs")
+    pyproject = get_pyproject_config()
+    tools = pyproject["tool"]["jgt_tools"]
+    if "doc_build_types" in tools:
+        message = (
+            "The use of doc_build_types is deprecated and may be removed in a "
+            "future version of the library. Use build_docs_commands instead."
+        )
+        warnings.warn(message, FutureWarning)
+        if tools["doc_build_types"] == [] and "build_docs_commands" not in tools:
+            return
     execute_command_list([x.format(**globals()) for x in __commands_to_run])
 
 
