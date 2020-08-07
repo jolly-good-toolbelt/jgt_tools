@@ -51,8 +51,8 @@ Available values are:
   under the ``self-check`` call
 - ``run_tests_commands`` - a list of commands to be run
   under the ``run-tests`` call
-- ``doc_build_types`` - a list of types for doc construction:
-  - ``api`` is currently the only supported option
+- ``build_docs_commands`` - a list of commands to be run
+  under the ``build-docs`` call
 
 For example::
 
@@ -62,10 +62,43 @@ For example::
         "poetry run pip install other_package",
         "./my_custom_setup_script.sh"
     ]
-    doc_build_types = []
+    build_docs_commands = []
 
 would run your specified commands for ``env-setup``
-and skip the ``api`` doc builder.
+and skip the default api doc builder.
+
+.. note::
+    NOTE: All commands provided in ``[tools.jgt_tools]``
+    will be run from project root.
+    To ensure your commands run as expected,
+    provide any paths in your custom commands relative from root.
+
+build_docs_commands
+~~~~~~~~~~~~~~~~~~~
+
+Specifically for ``build_docs_commands``,
+there are some variables
+that can be used to aid in documentation building,
+using Python-style curly-brace formatting::
+
+    BASE_DIR: Root library directory
+    PACKAGE_NAME: Folder name containing package
+    DOCS_WORKING_DIRECTORY: Temporary directory where docs are built (needed for Sphinx)
+    DOCS_OUTPUT_DIRECTORY: Final directory where docs are saved
+
+For example::
+
+    [tool.jgt_tools]
+    build_docs_commands = [
+        "poetry run sphinx-apidoc --output-dir {DOCS_WORKING_DIRECTORY} --no-toc --force --module-first {PACKAGE_NAME}
+    ]
+
+builds the Sphinx API docs for the current package
+and stores the output files
+in the temporary working directory.
+
+check-version
+~~~~~~~~~~~~~
 
 In addition,
 the function to verify which files are relevant to ``check-version``

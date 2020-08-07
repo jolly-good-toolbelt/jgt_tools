@@ -21,7 +21,7 @@ def execute_command_list(commands_to_run, verbose=True):
     for command in commands_to_run:
         if verbose:
             print(f"+{command}")
-        job = subprocess.run(shlex.split(command))
+        job = subprocess.run(shlex.split(command), cwd=CONFIGS["base_dir"])
         if job.returncode:
             sys.exit(job.returncode)
 
