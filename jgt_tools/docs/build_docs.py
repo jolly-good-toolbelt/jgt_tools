@@ -7,32 +7,33 @@ from pathlib import Path
 import shutil
 import subprocess
 import time
+import warnings
 
-from ..utils import CONFIGS, get_pyproject_config
+from ..utils import CONFIGS, execute_command_list, get_pyproject_config
 from .sample_conf import CONF_PY, MARKDOWN, TYPE_HINTS
 
 
+__commands_to_run = CONFIGS["build_docs_commands"]
 BASE_DIR = CONFIGS["base_dir"]
 PACKAGE_NAME = CONFIGS["package_name"].replace("-", "_").replace(".", "_")
-DOC_BUILD_TYPES = CONFIGS["doc_build_types"]
 
 DOCS_OUTPUT_DIRECTORY = "docs"
 DOCS_WORKING_DIRECTORY = "_docs"
 
 
-def _api():
-    sphinx_apidoc_cmd = [
-        "poetry",
-        "run",
-        "sphinx-apidoc",
-        "--output-dir",
-        DOCS_WORKING_DIRECTORY,
-        "--no-toc",
-        "--force",
-        "--module-first",
-    ]
+def _build_docs():
     print(f"Building {PACKAGE_NAME} API docs")
-    subprocess.check_call(sphinx_apidoc_cmd + [PACKAGE_NAME], cwd=BASE_DIR)
+    pyproject = get_pyproject_config()
+    tools = pyproject["tool"].get("jgt_tools") or {}
+    if "doc_build_types" in tools:
+        message = (
+            "The use of doc_build_types is deprecated and may be removed in a "
+            "future version of the library. Use build_docs_commands instead."
+        )
+        warnings.warn(message, FutureWarning)
+        if tools["doc_build_types"] == [] and "build_docs_commands" not in tools:
+            return
+    execute_command_list([x.format(**globals()) for x in __commands_to_run])
 
 
 def _build_conf():
@@ -56,9 +57,6 @@ def _build_conf():
     )
 
     (docs_dir / "conf.py").write_text(conf)
-
-
-BUILDERS = {"api": _api}
 
 
 def build():
@@ -100,11 +98,7 @@ def build():
 
     _build_conf()
 
-    for builder in DOC_BUILD_TYPES:
-        if builder not in BUILDERS:
-            print(f'No builder for value "{builder}" defined!')
-            exit(1)
-        BUILDERS[builder]()
+    _build_docs()
 
     # Copy over all the top level rST files so we don't
     # have to keep a duplicate list here.
