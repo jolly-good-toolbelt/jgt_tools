@@ -16,15 +16,15 @@ __commands_to_run = CONFIGS["run_tests_commands"]
 __doc__ = __doc__.format("\n    ".join(__commands_to_run))
 
 
-def run_tests(do_setup=False, self_check=False, verbose=True, additional_args=""):
+def run_tests(do_setup=False, self_check=False, verbose=True, additional_args=None):
     """Run code checks."""
     if do_setup:
         env_setup(verbose)
     if self_check:
         run_self_check(verbose=verbose)
 
-    commands_to_run = [f"{x} {' '.join(additional_args)}" for x in __commands_to_run]
-    execute_command_list(commands_to_run, verbose=verbose)
+    suffix = " {}".format(" ".join(additional_args)) if additional_args else ""
+    execute_command_list([x + suffix for x in __commands_to_run], verbose=verbose)
 
 
 def main():
