@@ -67,6 +67,12 @@ For example::
 would run your specified commands for ``env-setup``
 and skip the default api doc builder.
 
+.. note::
+    NOTE: All commands provided in ``[tools.jgt_tools]``
+    will be run from project root.
+    To ensure your commands run as expected,
+    provide any paths in your custom commands relative from root.
+
 build_docs_commands
 ~~~~~~~~~~~~~~~~~~~
 
