@@ -25,6 +25,20 @@ and you'll have access to these CLI calls:
 Details for each script can be found by calling with the ``--help`` flag.
 
 
+run-tests
+---------
+The ``run-tests`` commands will
+pass through any additional parameters
+provided on the command line.
+For example,
+by default ``run-tests`` maps to::
+
+    poetry run python -m pytest -vvv
+
+Running ``run-tests -s`` would run::
+
+    poetry run python -m pytest -vvv -s
+
 Documentation Index
 -------------------
 

@@ -16,14 +16,15 @@ __commands_to_run = CONFIGS["run_tests_commands"]
 __doc__ = __doc__.format("\n    ".join(__commands_to_run))
 
 
-def run_tests(do_setup=False, self_check=False, verbose=True):
+def run_tests(do_setup=False, self_check=False, verbose=True, additional_args=None):
     """Run code checks."""
     if do_setup:
         env_setup(verbose)
     if self_check:
         run_self_check(verbose=verbose)
 
-    execute_command_list(__commands_to_run, verbose=verbose)
+    suffix = " {}".format(" ".join(additional_args)) if additional_args else ""
+    execute_command_list([x + suffix for x in __commands_to_run], verbose=verbose)
 
 
 def main():
@@ -45,6 +46,11 @@ def main():
         action="store_true",
         help="do not show each command before it is executed",
     )
-    args = parser.parse_args()
+    args, additional_args = parser.parse_known_args()
 
-    run_tests(do_setup=args.setup, self_check=args.check, verbose=not args.quiet)
+    run_tests(
+        do_setup=args.setup,
+        self_check=args.check,
+        verbose=not args.quiet,
+        additional_args=additional_args,
+    )
