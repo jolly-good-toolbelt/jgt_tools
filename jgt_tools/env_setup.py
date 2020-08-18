@@ -7,7 +7,7 @@ Runs the following commands:
 import argparse
 import os
 
-from .utils import execute_command_list, CONFIGS
+from .utils import execute_command_list, CONFIGS, DEFAULT_CONFIGS
 
 __commands_to_run = CONFIGS["env_setup_commands"]
 
@@ -20,6 +20,9 @@ def env_setup(verbose):
     if os.getenv("VIRTUAL_ENV"):
         print(f"Setting up Virtual Environment: {os.environ['VIRTUAL_ENV']}")
     print()
+    for command in ("build_docs", "run_tests", "env_setup"):
+        if DEFAULT_CONFIGS[f"{command}_commands"] == CONFIGS[f"{command}_commands"]:
+            __commands_to_run.insert(1, f"poetry run pip install jgt_tools[{command}]")
     execute_command_list(__commands_to_run)
 
 
