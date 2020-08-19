@@ -26,13 +26,13 @@ def execute_command_list(commands_to_run, verbose=True):
             sys.exit(job.returncode)
 
 
-_DEFAULT_CONFIGS: defaultdict = defaultdict(list)
+DEFAULT_CONFIGS: defaultdict = defaultdict(list)
 
 
 def _load_defaults():
     with DEFAULTS_FILE.open() as f:
         for group, cmd in csv.reader(f):
-            _DEFAULT_CONFIGS[group].append(cmd)
+            DEFAULT_CONFIGS[group].append(cmd)
 
 
 _load_defaults()
@@ -75,7 +75,7 @@ def load_configs():
     package_description = poetry["description"]
 
     configs = {
-        **_DEFAULT_CONFIGS,
+        **DEFAULT_CONFIGS,
         "package_name": package_name,
         "description": package_description,
         "base_dir": PACKAGE_ROOT_PATH,
