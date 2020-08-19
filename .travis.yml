@@ -8,7 +8,7 @@ before_install:
 - sudo apt-get update
 - sudo apt-get install graphviz
 - pip install poetry
-- "[ ! -z \"$(poetry env list)\" ] && poetry env remove $(poetry env list | awk \"{print $1;}\") || true"
+- "pip list | grep jgt-tools && pip uninstall -y jgt-tools || true"
 
 install:
 - "./env_setup.py"
