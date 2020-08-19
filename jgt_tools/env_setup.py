@@ -22,7 +22,7 @@ def env_setup(verbose):
     print()
     for command in ("build_docs", "run_tests", "env_setup"):
         if DEFAULT_CONFIGS[f"{command}_commands"] == CONFIGS[f"{command}_commands"]:
-            __commands_to_run.insert(1, f"poetry run pip install jgt_tools[{command}]")
+            __commands_to_run.insert(2, f"poetry run pip install jgt_tools[{command}]")
     execute_command_list(__commands_to_run)
 
 
