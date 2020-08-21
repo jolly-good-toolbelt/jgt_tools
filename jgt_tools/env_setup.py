@@ -20,6 +20,13 @@ def env_setup(verbose):
     if os.getenv("VIRTUAL_ENV"):
         print(f"Setting up Virtual Environment: {os.environ['VIRTUAL_ENV']}")
     print()
+    # In order to keep the initial install as lean as possible, the base installer only
+    # install the libraries that are needed to run the library itself and all other
+    # libraries are marked as optional. For a user to user the default commands,
+    # additional libraries are needed and so this check first sees if the end user has
+    # *not* modified the default command(s) and if the commands are the default ones,
+    # install those libraries needed by the command. This intentionally cycles over
+    # each command independently in case some are modified and some are not.
     for command in ("build_docs", "run_tests", "env_setup"):
         if DEFAULT_CONFIGS[f"{command}_commands"] == CONFIGS[f"{command}_commands"]:
             __commands_to_run.insert(2, f"poetry run pip install jgt_tools[{command}]")
