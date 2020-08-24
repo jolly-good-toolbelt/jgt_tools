@@ -3,7 +3,6 @@ import argparse
 import email.utils
 import itertools
 import os
-from pathlib import Path
 import shutil
 import subprocess
 import time
@@ -99,30 +98,6 @@ def build():
     _build_conf()
 
     _build_docs()
-
-    # Copy over all the top level rST files so we don't
-    # have to keep a duplicate list here.
-    for filename in Path().glob("*.rst"):
-        shutil.copy(filename, DOCS_WORKING_DIRECTORY)
-
-    shutil.copy(
-        BASE_DIR / ".jgt_tools.index", BASE_DIR / DOCS_WORKING_DIRECTORY / "index.rst"
-    )
-
-    os.environ["PYTHONPATH"] = str(Path.cwd())
-    subprocess.check_call(
-        [
-            "poetry",
-            "run",
-            "sphinx-build",
-            "-c",
-            DOCS_WORKING_DIRECTORY,
-            "-aEW",
-            DOCS_WORKING_DIRECTORY,
-            DOCS_OUTPUT_DIRECTORY,
-        ],
-        cwd=BASE_DIR,
-    )
 
 
 def push():
