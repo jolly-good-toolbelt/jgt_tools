@@ -21,7 +21,6 @@ DOCS_WORKING_DIRECTORY = "_docs"
 
 
 def _build_docs():
-    print(f"Building {PACKAGE_NAME} API docs")
     pyproject = get_pyproject_config()
     tools = pyproject["tool"].get("jgt_tools") or {}
     if "doc_build_types" in tools:
