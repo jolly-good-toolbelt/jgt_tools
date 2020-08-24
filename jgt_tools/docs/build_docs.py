@@ -3,6 +3,7 @@ import argparse
 import email.utils
 import itertools
 import os
+import pathlib
 import shutil
 import subprocess
 import time
@@ -101,7 +102,8 @@ def build():
 
 def push():
     """Push docs to github-pages."""
-    subprocess.check_call(["poetry", "run", "ghp-import", "-p", "docs/"])
+    if (pathlib.Path(BASE_DIR) / DOCS_OUTPUT_DIRECTORY).exists():
+        subprocess.check_call(["poetry", "run", "ghp-import", "-p", "docs/"])
 
 
 def build_and_push():
