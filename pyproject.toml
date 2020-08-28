@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "jgt_tools"
-version = "0.3.2"
+version = "0.4.0"
 description = "A collection of tools for commmon package scripts"
 authors = ["Brad Brown <brad@bradsbrown.com>"]
 license = "MIT"
@@ -11,13 +11,14 @@ repository = "https://github.com/jolly-good-toolbelt/jgt_tools"
 
 [tool.poetry.dependencies]
 python = "^3.6"
-tomlkit = "^0.5.3"
-sphinx = {version = "^2.1", optional = true}
-sphinx-rtd-theme = {version = "^0.4.3", optional = true}
+tomlkit = "^0.7.0"
+sphinx = {version = "^3.1.2", optional = true}
+sphinx-rtd-theme = {version = "^0.5.0", optional = true}
 ghp-import = {version = "^0.5.5", optional = true}
+pytest = {version = "^5.0", optional = true}
+pre-commit = {version = "^1.15", optional = true}
 
 [tool.poetry.dev-dependencies]
-pre-commit = "^1.15"
 flake8 = "^3.7"
 flake8-builtins = "^1.4"
 flake8-comprehensions = "^2.1"
@@ -25,13 +26,11 @@ flake8-docstrings = "^1.3"
 flake8-tuple = "^0.4.0"
 flake8-quotes = "^2.0"
 pep8-naming = "^0.8.2"
-sphinx = "^2.1"
-sphinx-rtd-theme = "^0.4.3"
-ghp-import = "^0.5.5"
-pytest = "^5.0"
 
 [tool.poetry.extras]
 build_docs = ["sphinx", "sphinx-rtd-theme", "ghp-import"]
+run_tests = ["pytest"]
+env_setup = ["pre-commit"]
 
 [tool.poetry.scripts]
 run-tests = "jgt_tools.run_tests:main"
@@ -42,5 +41,5 @@ build-docs = {callable = "jgt_tools.docs.build_docs:build", extras = ["build_doc
 build-and-push-docs = {callable = "jgt_tools.docs.build_docs:build_and_push", extras = ["build_docs"]}
 
 [build-system]
-requires = ["poetry>=0.12"]
+requires = ["poetry>=1.0"]
 build-backend = "poetry.masonry.api"

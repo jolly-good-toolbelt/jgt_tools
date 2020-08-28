@@ -3,7 +3,7 @@ import argparse
 import email.utils
 import itertools
 import os
-from pathlib import Path
+import pathlib
 import shutil
 import subprocess
 import time
@@ -22,7 +22,6 @@ DOCS_WORKING_DIRECTORY = "_docs"
 
 
 def _build_docs():
-    print(f"Building {PACKAGE_NAME} API docs")
     pyproject = get_pyproject_config()
     tools = pyproject["tool"].get("jgt_tools") or {}
     if "doc_build_types" in tools:
@@ -100,34 +99,11 @@ def build():
 
     _build_docs()
 
-    # Copy over all the top level rST files so we don't
-    # have to keep a duplicate list here.
-    for filename in Path().glob("*.rst"):
-        shutil.copy(filename, DOCS_WORKING_DIRECTORY)
-
-    shutil.copy(
-        BASE_DIR / ".jgt_tools.index", BASE_DIR / DOCS_WORKING_DIRECTORY / "index.rst"
-    )
-
-    os.environ["PYTHONPATH"] = str(Path.cwd())
-    subprocess.check_call(
-        [
-            "poetry",
-            "run",
-            "sphinx-build",
-            "-c",
-            DOCS_WORKING_DIRECTORY,
-            "-aEW",
-            DOCS_WORKING_DIRECTORY,
-            DOCS_OUTPUT_DIRECTORY,
-        ],
-        cwd=BASE_DIR,
-    )
-
 
 def push():
     """Push docs to github-pages."""
-    subprocess.check_call(["poetry", "run", "ghp-import", "-p", "docs/"])
+    if (pathlib.Path(BASE_DIR) / DOCS_OUTPUT_DIRECTORY).exists():
+        subprocess.check_call(["poetry", "run", "ghp-import", "-p", "docs/"])
 
 
 def build_and_push():

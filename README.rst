@@ -24,6 +24,15 @@ and you'll have access to these CLI calls:
 
 Details for each script can be found by calling with the ``--help`` flag.
 
+.. tip::
+   In order to keep the environment as clean as possible,
+   JGT Tools will only install the libraries needed to start the tool itself.
+   However, several of the default commands
+   rely on additional libraries.
+   When ``env-setup`` is run for the first time,
+   it will check to see if each set of commands is still default,
+   and if so, install the libraries those commands need.
+
 
 run-tests
 ---------

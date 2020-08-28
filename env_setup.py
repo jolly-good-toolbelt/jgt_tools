@@ -12,5 +12,7 @@ except ModuleNotFoundError:
     # or you are not inside the virutalenv at all.
     # Installing and calling `env-setup` via subcommand and `poetry run`
     # will ensure the "right thing" happens in either situation.
-    subprocess.check_call(["poetry", "run", "pip", "install", "jgt_tools"])
+    proc = subprocess.run(["poetry", "version"], stdout=subprocess.PIPE)
+    package_name = "." if proc.stdout.split()[0] == b"jgt-tools" else "jgt_tools"
+    subprocess.check_call(["poetry", "run", "pip", "install", package_name])
     subprocess.check_call(["poetry", "run", "env-setup"])
