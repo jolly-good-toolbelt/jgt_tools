@@ -1,0 +1,58 @@
+jgt\_tools package
+==================
+
+.. automodule:: jgt_tools
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   jgt_tools.docs
+
+Submodules
+----------
+
+jgt\_tools.check\_version module
+--------------------------------
+
+.. automodule:: jgt_tools.check_version
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+jgt\_tools.env\_setup module
+----------------------------
+
+.. automodule:: jgt_tools.env_setup
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+jgt\_tools.run\_tests module
+----------------------------
+
+.. automodule:: jgt_tools.run_tests
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+jgt\_tools.self\_check module
+-----------------------------
+
+.. automodule:: jgt_tools.self_check
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+jgt\_tools.utils module
+-----------------------
+
+.. automodule:: jgt_tools.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

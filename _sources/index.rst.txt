@@ -1,0 +1,46 @@
+.. include:: README.rst
+
+Beyond The Quick Start
+======================
+
+Default Command Values
+======================
+
+Default values for each are:
+
+.. csv-table:: Default Command values
+   :header: "Configuration Key", "Command"
+   :file: ../jgt_tools/data/defaults.csv
+
+
+JGT Tools - What It Does
+========================
+
+.. _api-documentation:
+
+JGT Tools - How To Use It - Module Documentation
+------------------------------------------------
+
+For users of this package, the nitty gritty coding and configuration details.
+
+.. toctree::
+   :maxdepth: 4
+
+   jgt_tools
+
+
+Maintainer's Documentation
+==========================
+
+.. toctree::
+
+    MAINTAINER
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
