@@ -113,3 +113,17 @@ def owner_name_from(origin_url):
     owner_name = owner_name.rsplit(".", 1)[0]  # Remove `.git`
     # Keep only the last two parts that remain, which are the org/owner and repo name
     return "/".join(owner_name.split("/")[-2:])
+
+
+def default_commands(command):
+    """
+    Check if the provided command is the default list.
+
+    Args:
+        command: Command to check. One of ('build_docs', 'run_tests', or 'env_setup')
+
+    Returns:
+        bool: True if the commands are default, otherwise false
+
+    """
+    return DEFAULT_CONFIGS[f"{command}_commands"] == CONFIGS[f"{command}_commands"]

@@ -7,7 +7,7 @@ Runs the following commands:
 import argparse
 import os
 
-from .utils import execute_command_list, CONFIGS, DEFAULT_CONFIGS
+from .utils import execute_command_list, CONFIGS, default_commands
 
 __commands_to_run = CONFIGS["env_setup_commands"]
 
@@ -28,7 +28,7 @@ def env_setup(verbose):
     # install those libraries needed by the command. This intentionally cycles over
     # each command independently in case some are modified and some are not.
     for command in ("build_docs", "run_tests", "env_setup"):
-        if DEFAULT_CONFIGS[f"{command}_commands"] == CONFIGS[f"{command}_commands"]:
+        if default_commands(command):
             __commands_to_run.insert(2, f"poetry run pip install jgt_tools[{command}]")
     execute_command_list(__commands_to_run)
 

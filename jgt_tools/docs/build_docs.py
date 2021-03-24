@@ -9,7 +9,12 @@ import subprocess
 import time
 import warnings
 
-from ..utils import CONFIGS, execute_command_list, get_pyproject_config
+from ..utils import (
+    CONFIGS,
+    execute_command_list,
+    get_pyproject_config,
+    default_commands,
+)
 from .sample_conf import CONF_PY, MARKDOWN, TYPE_HINTS
 
 
@@ -21,8 +26,7 @@ DOCS_OUTPUT_DIRECTORY = "docs"
 DOCS_WORKING_DIRECTORY = "_docs"
 
 
-def _build_docs():
-    pyproject = get_pyproject_config()
+def _build_docs(pyproject):
     tools = pyproject["tool"].get("jgt_tools") or {}
     if "doc_build_types" in tools:
         message = (
@@ -35,16 +39,9 @@ def _build_docs():
     execute_command_list([x.format(**globals()) for x in __commands_to_run])
 
 
-def _build_conf():
+def _build_conf(poetry, dependencies):
     docs_dir = BASE_DIR / DOCS_WORKING_DIRECTORY
     docs_dir.mkdir(exist_ok=True)
-
-    pyproject = get_pyproject_config()
-    poetry = pyproject["tool"]["poetry"]
-
-    dependencies = list(
-        itertools.chain(poetry["dependencies"], poetry["dev-dependencies"])
-    )
 
     conf = CONF_PY.format(
         name=f"{poetry['name']} - {poetry['description']}",
@@ -95,9 +92,16 @@ def build():
         shutil.rmtree(str(BASE_DIR / DOCS_OUTPUT_DIRECTORY), ignore_errors=True)
         shutil.rmtree(str(BASE_DIR / DOCS_WORKING_DIRECTORY), ignore_errors=True)
 
-    _build_conf()
+    pyproject = get_pyproject_config()
+    poetry = pyproject["tool"]["poetry"]
+    dependencies = list(
+        itertools.chain(poetry["dependencies"], poetry["dev-dependencies"])
+    )
 
-    _build_docs()
+    if default_commands("build_docs") or "sphinx" in dependencies:
+        _build_conf(poetry, dependencies)
+
+    _build_docs(pyproject)
 
 
 def push():
