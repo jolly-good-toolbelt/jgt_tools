@@ -11,17 +11,21 @@ def _version_changed(pyproject_diff):
     return "+version = " in pyproject_diff
 
 
-def find_default_branch():
-    """Find the default branch for a git repository."""
+def find_remote():
+    """Find the primary remote for a git repository."""
     remotes = subprocess.check_output(
         ["git", "remote"], universal_newlines=True
     ).splitlines()
     if len(remotes) == 1:
-        remote = remotes[0]
+        return remotes[0]
     elif "origin" in remotes:
-        remote = "origin"
-    else:
-        raise KeyError("Cannot determine remote")
+        return "origin"
+    raise KeyError("Cannot determine remote")
+
+
+def find_default_branch():
+    """Find the default branch for a git repository."""
+    remote = find_remote()
     remote_info = subprocess.check_output(
         ["git", "remote", "show", remote], universal_newlines=True
     ).splitlines()
