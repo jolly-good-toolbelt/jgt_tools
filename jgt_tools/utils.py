@@ -115,7 +115,7 @@ def owner_name_from(origin_url):
     return "/".join(owner_name.split("/")[-2:])
 
 
-def default_commands(command):
+def has_default_commands(command):
     """
     Check if the provided command is the default list.
 

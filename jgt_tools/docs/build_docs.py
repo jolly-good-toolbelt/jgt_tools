@@ -13,7 +13,7 @@ from ..utils import (
     CONFIGS,
     execute_command_list,
     get_pyproject_config,
-    default_commands,
+    has_default_commands,
 )
 from .sample_conf import CONF_PY, MARKDOWN, TYPE_HINTS
 
@@ -98,7 +98,7 @@ def build():
         itertools.chain(poetry["dependencies"], poetry["dev-dependencies"])
     )
 
-    if default_commands("build_docs") or "sphinx" in dependencies:
+    if has_default_commands("build_docs") or "sphinx" in dependencies:
         _build_conf(poetry, dependencies)
 
     _build_docs(pyproject)
