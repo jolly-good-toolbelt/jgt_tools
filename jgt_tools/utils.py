@@ -21,9 +21,12 @@ def execute_command_list(commands_to_run, verbose=True):
     for command in commands_to_run:
         if verbose:
             print(f"+{command}")
-        job = subprocess.run(shlex.split(command), cwd=CONFIGS["base_dir"])
-        if job.returncode:
-            sys.exit(job.returncode)
+        try:
+            job = subprocess.run(shlex.split(command), cwd=CONFIGS["base_dir"])
+            if job.returncode:
+                sys.exit(job.returncode)
+        except KeyboardInterrupt:
+            pass
 
 
 DEFAULT_CONFIGS: defaultdict = defaultdict(list)
