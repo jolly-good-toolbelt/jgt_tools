@@ -1,0 +1,26 @@
+jgt\_tools.docs package
+=======================
+
+.. automodule:: jgt_tools.docs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+jgt\_tools.docs.build\_docs module
+----------------------------------
+
+.. automodule:: jgt_tools.docs.build_docs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+jgt\_tools.docs.sample\_conf module
+-----------------------------------
+
+.. automodule:: jgt_tools.docs.sample_conf
+   :members:
+   :undoc-members:
+   :show-inheritance:

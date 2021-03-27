@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>jgt_tools.utils &mdash; jgt_tools - A collection of tools for commmon package scripts 0.4.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> jgt_tools - A collection of tools for commmon package scripts
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../jgt_tools.html">jgt_tools package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.docs.html">jgt_tools.docs package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../jgt_tools.docs.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../jgt_tools.docs.html#module-jgt_tools.docs.build_docs">jgt_tools.docs.build_docs module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../jgt_tools.docs.html#module-jgt_tools.docs.sample_conf">jgt_tools.docs.sample_conf module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.check_version">jgt_tools.check_version module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.env_setup">jgt_tools.env_setup module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.run_tests">jgt_tools.run_tests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.self_check">jgt_tools.self_check module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.utils">jgt_tools.utils module</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../MAINTAINER.html">Maintainer’s Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../MAINTAINER.html#cli-scripts">CLI scripts:</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">jgt_tools - A collection of tools for commmon package scripts</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>jgt_tools.utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for jgt_tools.utils</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Shared util functions.&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">shlex</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">tomlkit</span>
+
+
+<span class="n">DEFAULTS_FILE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span> <span class="o">/</span> <span class="s2">&quot;defaults.csv&quot;</span>
+
+
+<div class="viewcode-block" id="execute_command_list"><a class="viewcode-back" href="../../jgt_tools.html#jgt_tools.utils.execute_command_list">[docs]</a><span class="k">def</span> <span class="nf">execute_command_list</span><span class="p">(</span><span class="n">commands_to_run</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Execute each command in the list.</span>
+
+<span class="sd">    If any command fails, print a helpful message and exit with that status.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">commands_to_run</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;+</span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">job</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">command</span><span class="p">),</span> <span class="n">cwd</span><span class="o">=</span><span class="n">CONFIGS</span><span class="p">[</span><span class="s2">&quot;base_dir&quot;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">job</span><span class="o">.</span><span class="n">returncode</span><span class="p">:</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">returncode</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+            <span class="k">pass</span></div>
+
+
+<span class="n">DEFAULT_CONFIGS</span><span class="p">:</span> <span class="n">defaultdict</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_load_defaults</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">DEFAULTS_FILE</span><span class="o">.</span><span class="n">open</span><span class="p">()</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">group</span><span class="p">,</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+            <span class="n">DEFAULT_CONFIGS</span><span class="p">[</span><span class="n">group</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+
+
+<span class="n">_load_defaults</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_get_package_root</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Path</span><span class="p">(</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
+                <span class="p">[</span><span class="s2">&quot;git&quot;</span><span class="p">,</span> <span class="s2">&quot;rev-parse&quot;</span><span class="p">,</span> <span class="s2">&quot;--show-toplevel&quot;</span><span class="p">],</span> <span class="n">universal_newlines</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;jgt_tools needs to be run from within a git repository&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="n">PACKAGE_ROOT_PATH</span> <span class="o">=</span> <span class="n">_get_package_root</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="get_pyproject_config"><a class="viewcode-back" href="../../jgt_tools.html#jgt_tools.utils.get_pyproject_config">[docs]</a><span class="k">def</span> <span class="nf">get_pyproject_config</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Get the config data from the project&#39;s pyproject.toml file.&quot;&quot;&quot;</span>
+    <span class="n">pyproject_path</span> <span class="o">=</span> <span class="n">PACKAGE_ROOT_PATH</span> <span class="o">/</span> <span class="s2">&quot;pyproject.toml&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">pyproject_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Config file not found at: &#39;</span><span class="si">{</span><span class="n">pyproject_path</span><span class="si">}</span><span class="s2">&#39; &quot;</span>
+            <span class="s2">&quot;(must be run from project root)&quot;</span>
+        <span class="p">)</span>
+    <span class="k">with</span> <span class="n">pyproject_path</span><span class="o">.</span><span class="n">open</span><span class="p">()</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">pyproject</span> <span class="o">=</span> <span class="n">tomlkit</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">pyproject</span></div>
+
+
+<div class="viewcode-block" id="load_configs"><a class="viewcode-back" href="../../jgt_tools.html#jgt_tools.utils.load_configs">[docs]</a><span class="k">def</span> <span class="nf">load_configs</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Build configs from defaults and pyproject.toml.&quot;&quot;&quot;</span>
+    <span class="n">pyproject</span> <span class="o">=</span> <span class="n">get_pyproject_config</span><span class="p">()</span>
+
+    <span class="n">poetry</span> <span class="o">=</span> <span class="n">pyproject</span><span class="p">[</span><span class="s2">&quot;tool&quot;</span><span class="p">][</span><span class="s2">&quot;poetry&quot;</span><span class="p">]</span>
+    <span class="n">package_name</span> <span class="o">=</span> <span class="n">poetry</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+    <span class="n">package_description</span> <span class="o">=</span> <span class="n">poetry</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span>
+
+    <span class="n">configs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="o">**</span><span class="n">DEFAULT_CONFIGS</span><span class="p">,</span>
+        <span class="s2">&quot;package_name&quot;</span><span class="p">:</span> <span class="n">package_name</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">package_description</span><span class="p">,</span>
+        <span class="s2">&quot;base_dir&quot;</span><span class="p">:</span> <span class="n">PACKAGE_ROOT_PATH</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="s2">&quot;jgt_tools&quot;</span> <span class="ow">in</span> <span class="n">pyproject</span><span class="p">[</span><span class="s2">&quot;tool&quot;</span><span class="p">]:</span>
+        <span class="n">configs</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">configs</span><span class="p">,</span> <span class="o">**</span><span class="n">pyproject</span><span class="p">[</span><span class="s2">&quot;tool&quot;</span><span class="p">][</span><span class="s2">&quot;jgt_tools&quot;</span><span class="p">]}</span>
+    <span class="k">return</span> <span class="n">configs</span></div>
+
+
+<span class="n">CONFIGS</span> <span class="o">=</span> <span class="n">load_configs</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="owner_name_from"><a class="viewcode-back" href="../../jgt_tools.html#jgt_tools.utils.owner_name_from">[docs]</a><span class="k">def</span> <span class="nf">owner_name_from</span><span class="p">(</span><span class="n">origin_url</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract the owner name from a git origin URL.</span>
+
+<span class="sd">    The git origin URL might be in ``git+ssh`` form, or ``https`` form.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        origin_url (str): Origin URL from `git`</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: A slash-separated string containing the organization / owner and repository</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; owner_name_from(&quot;git@github.com:jolly-good-toolbelt/jgt_tools.git&quot;)</span>
+<span class="sd">        &quot;jolly-good-toolbelt/jgt_tools&quot;</span>
+<span class="sd">        &gt;&gt;&gt; owner_name_from(&quot;https://github.com/jolly-good-toolbelt/jgt_tools.git&quot;)</span>
+<span class="sd">        &quot;jolly-good-toolbelt/jgt_tools&quot;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">origin_url</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">owner_name</span> <span class="o">=</span> <span class="n">origin_url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Remove method portion</span>
+    <span class="n">owner_name</span> <span class="o">=</span> <span class="n">owner_name</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Remove `.git`</span>
+    <span class="c1"># Keep only the last two parts that remain, which are the org/owner and repo name</span>
+    <span class="k">return</span> <span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">owner_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">:])</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Brad Brown.
+      <span class="build">
+        
+        Build
+        <a href="https://github.com/jolly-good-toolbelt/jgt_tools/tree/0c6e5cab876700ce5c5b7d3491864020cbf272d4">0c6e5cab876700ce5c5b7d3491864020cbf272d4</a>.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

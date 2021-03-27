@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>jgt_tools.docs.build_docs &mdash; jgt_tools - A collection of tools for commmon package scripts 0.4.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> jgt_tools - A collection of tools for commmon package scripts
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../jgt_tools.html">jgt_tools package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../jgt_tools.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../jgt_tools.docs.html">jgt_tools.docs package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../jgt_tools.docs.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../jgt_tools.docs.html#module-jgt_tools.docs.build_docs">jgt_tools.docs.build_docs module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../jgt_tools.docs.html#module-jgt_tools.docs.sample_conf">jgt_tools.docs.sample_conf module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../jgt_tools.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../jgt_tools.html#module-jgt_tools.check_version">jgt_tools.check_version module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../jgt_tools.html#module-jgt_tools.env_setup">jgt_tools.env_setup module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../jgt_tools.html#module-jgt_tools.run_tests">jgt_tools.run_tests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../jgt_tools.html#module-jgt_tools.self_check">jgt_tools.self_check module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../jgt_tools.html#module-jgt_tools.utils">jgt_tools.utils module</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MAINTAINER.html">Maintainer’s Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../MAINTAINER.html#cli-scripts">CLI scripts:</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">jgt_tools - A collection of tools for commmon package scripts</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>jgt_tools.docs.build_docs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for jgt_tools.docs.build_docs</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Build the documentation for a package.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">email.utils</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">CONFIGS</span><span class="p">,</span> <span class="n">execute_command_list</span><span class="p">,</span> <span class="n">get_pyproject_config</span>
+<span class="kn">from</span> <span class="nn">.sample_conf</span> <span class="kn">import</span> <span class="n">CONF_PY</span><span class="p">,</span> <span class="n">MARKDOWN</span><span class="p">,</span> <span class="n">TYPE_HINTS</span>
+
+
+<span class="n">__commands_to_run</span> <span class="o">=</span> <span class="n">CONFIGS</span><span class="p">[</span><span class="s2">&quot;build_docs_commands&quot;</span><span class="p">]</span>
+<span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">CONFIGS</span><span class="p">[</span><span class="s2">&quot;base_dir&quot;</span><span class="p">]</span>
+<span class="n">PACKAGE_NAME</span> <span class="o">=</span> <span class="n">CONFIGS</span><span class="p">[</span><span class="s2">&quot;package_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+
+<span class="n">DOCS_OUTPUT_DIRECTORY</span> <span class="o">=</span> <span class="s2">&quot;docs&quot;</span>
+<span class="n">DOCS_WORKING_DIRECTORY</span> <span class="o">=</span> <span class="s2">&quot;_docs&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">_build_docs</span><span class="p">():</span>
+    <span class="n">pyproject</span> <span class="o">=</span> <span class="n">get_pyproject_config</span><span class="p">()</span>
+    <span class="n">tools</span> <span class="o">=</span> <span class="n">pyproject</span><span class="p">[</span><span class="s2">&quot;tool&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;jgt_tools&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="s2">&quot;doc_build_types&quot;</span> <span class="ow">in</span> <span class="n">tools</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;The use of doc_build_types is deprecated and may be removed in a &quot;</span>
+            <span class="s2">&quot;future version of the library. Use build_docs_commands instead.&quot;</span>
+        <span class="p">)</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="ne">FutureWarning</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tools</span><span class="p">[</span><span class="s2">&quot;doc_build_types&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="p">[]</span> <span class="ow">and</span> <span class="s2">&quot;build_docs_commands&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">tools</span><span class="p">:</span>
+            <span class="k">return</span>
+    <span class="n">execute_command_list</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="nb">globals</span><span class="p">())</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">__commands_to_run</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">_build_conf</span><span class="p">():</span>
+    <span class="n">docs_dir</span> <span class="o">=</span> <span class="n">BASE_DIR</span> <span class="o">/</span> <span class="n">DOCS_WORKING_DIRECTORY</span>
+    <span class="n">docs_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">pyproject</span> <span class="o">=</span> <span class="n">get_pyproject_config</span><span class="p">()</span>
+    <span class="n">poetry</span> <span class="o">=</span> <span class="n">pyproject</span><span class="p">[</span><span class="s2">&quot;tool&quot;</span><span class="p">][</span><span class="s2">&quot;poetry&quot;</span><span class="p">]</span>
+
+    <span class="n">dependencies</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+        <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="n">poetry</span><span class="p">[</span><span class="s2">&quot;dependencies&quot;</span><span class="p">],</span> <span class="n">poetry</span><span class="p">[</span><span class="s2">&quot;dev-dependencies&quot;</span><span class="p">])</span>
+    <span class="p">)</span>
+
+    <span class="n">conf</span> <span class="o">=</span> <span class="n">CONF_PY</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">poetry</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">poetry</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">authors</span><span class="o">=</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">email</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">parseaddr</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">poetry</span><span class="p">[</span><span class="s2">&quot;authors&quot;</span><span class="p">]),</span>
+        <span class="n">year</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y&quot;</span><span class="p">),</span>
+        <span class="n">type_hints</span><span class="o">=</span><span class="n">TYPE_HINTS</span> <span class="k">if</span> <span class="s2">&quot;sphinx-autodoc-typehints&quot;</span> <span class="ow">in</span> <span class="n">dependencies</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">version</span><span class="o">=</span><span class="n">poetry</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">],</span>
+        <span class="n">markdown</span><span class="o">=</span><span class="n">MARKDOWN</span> <span class="k">if</span> <span class="s2">&quot;recommonmark&quot;</span> <span class="ow">in</span> <span class="n">dependencies</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="p">(</span><span class="n">docs_dir</span> <span class="o">/</span> <span class="s2">&quot;conf.py&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">conf</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="build"><a class="viewcode-back" href="../../../jgt_tools.docs.html#jgt_tools.docs.build_docs.build">[docs]</a><span class="k">def</span> <span class="nf">build</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Build the docs.&quot;&quot;&quot;</span>
+    <span class="c1"># Setup environment variables</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">commit_id</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
+            <span class="p">[</span><span class="s2">&quot;git&quot;</span><span class="p">,</span> <span class="s2">&quot;rev-parse&quot;</span><span class="p">,</span> <span class="s2">&quot;HEAD&quot;</span><span class="p">],</span>
+            <span class="n">cwd</span><span class="o">=</span><span class="n">BASE_DIR</span><span class="p">,</span>
+            <span class="n">universal_newlines</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">:</span>
+        <span class="n">commit_id</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;GIT_COMMIT_ID&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">commit_id</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">origin_url</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
+            <span class="p">[</span><span class="s2">&quot;git&quot;</span><span class="p">,</span> <span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;--get&quot;</span><span class="p">,</span> <span class="s2">&quot;remote.origin.url&quot;</span><span class="p">],</span>
+            <span class="n">cwd</span><span class="o">=</span><span class="n">BASE_DIR</span><span class="p">,</span>
+            <span class="n">universal_newlines</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">:</span>
+        <span class="n">origin_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;GIT_ORIGIN_URL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">origin_url</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--dirty&quot;</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Leave the output directory untouched before starting to build documents&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">dirty</span><span class="p">:</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">BASE_DIR</span> <span class="o">/</span> <span class="n">DOCS_OUTPUT_DIRECTORY</span><span class="p">),</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">BASE_DIR</span> <span class="o">/</span> <span class="n">DOCS_WORKING_DIRECTORY</span><span class="p">),</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">_build_conf</span><span class="p">()</span>
+
+    <span class="n">_build_docs</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="push"><a class="viewcode-back" href="../../../jgt_tools.docs.html#jgt_tools.docs.build_docs.push">[docs]</a><span class="k">def</span> <span class="nf">push</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Push docs to github-pages.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">)</span> <span class="o">/</span> <span class="n">DOCS_OUTPUT_DIRECTORY</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="s2">&quot;poetry&quot;</span><span class="p">,</span> <span class="s2">&quot;run&quot;</span><span class="p">,</span> <span class="s2">&quot;ghp-import&quot;</span><span class="p">,</span> <span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="s2">&quot;docs/&quot;</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="build_and_push"><a class="viewcode-back" href="../../../jgt_tools.docs.html#jgt_tools.docs.build_docs.build_and_push">[docs]</a><span class="k">def</span> <span class="nf">build_and_push</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Build docs then publish.&quot;&quot;&quot;</span>
+    <span class="n">build</span><span class="p">()</span>
+    <span class="n">push</span><span class="p">()</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Brad Brown.
+      <span class="build">
+        
+        Build
+        <a href="https://github.com/jolly-good-toolbelt/jgt_tools/tree/0c6e5cab876700ce5c5b7d3491864020cbf272d4">0c6e5cab876700ce5c5b7d3491864020cbf272d4</a>.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

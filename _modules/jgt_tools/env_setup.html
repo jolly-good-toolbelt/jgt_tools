@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>jgt_tools.env_setup &mdash; jgt_tools - A collection of tools for commmon package scripts 0.4.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> jgt_tools - A collection of tools for commmon package scripts
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../jgt_tools.html">jgt_tools package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.docs.html">jgt_tools.docs package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../jgt_tools.docs.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../jgt_tools.docs.html#module-jgt_tools.docs.build_docs">jgt_tools.docs.build_docs module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../jgt_tools.docs.html#module-jgt_tools.docs.sample_conf">jgt_tools.docs.sample_conf module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.check_version">jgt_tools.check_version module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.env_setup">jgt_tools.env_setup module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.run_tests">jgt_tools.run_tests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.self_check">jgt_tools.self_check module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.utils">jgt_tools.utils module</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../MAINTAINER.html">Maintainer’s Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../MAINTAINER.html#cli-scripts">CLI scripts:</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">jgt_tools - A collection of tools for commmon package scripts</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>jgt_tools.env_setup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for jgt_tools.env_setup</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Setup the development environment.</span>
+
+<span class="sd">Runs the following commands:</span>
+<span class="sd">    {}</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">execute_command_list</span><span class="p">,</span> <span class="n">CONFIGS</span><span class="p">,</span> <span class="n">DEFAULT_CONFIGS</span>
+
+<span class="n">__commands_to_run</span> <span class="o">=</span> <span class="n">CONFIGS</span><span class="p">[</span><span class="s2">&quot;env_setup_commands&quot;</span><span class="p">]</span>
+
+<span class="vm">__doc__</span> <span class="o">=</span> <span class="vm">__doc__</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">__commands_to_run</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="env_setup"><a class="viewcode-back" href="../../jgt_tools.html#jgt_tools.env_setup.env_setup">[docs]</a><span class="k">def</span> <span class="nf">env_setup</span><span class="p">(</span><span class="n">verbose</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Prepare environment for running.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()))</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;VIRTUAL_ENV&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Setting up Virtual Environment: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;VIRTUAL_ENV&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="c1"># In order to keep the initial install as lean as possible, the base installer only</span>
+    <span class="c1"># install the libraries that are needed to run the library itself and all other</span>
+    <span class="c1"># libraries are marked as optional. For a user to user the default commands,</span>
+    <span class="c1"># additional libraries are needed and so this check first sees if the end user has</span>
+    <span class="c1"># *not* modified the default command(s) and if the commands are the default ones,</span>
+    <span class="c1"># install those libraries needed by the command. This intentionally cycles over</span>
+    <span class="c1"># each command independently in case some are modified and some are not.</span>
+    <span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;build_docs&quot;</span><span class="p">,</span> <span class="s2">&quot;run_tests&quot;</span><span class="p">,</span> <span class="s2">&quot;env_setup&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">DEFAULT_CONFIGS</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">_commands&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">CONFIGS</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">_commands&quot;</span><span class="p">]:</span>
+            <span class="n">__commands_to_run</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;poetry run pip install jgt_tools[</span><span class="si">{</span><span class="n">command</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+    <span class="n">execute_command_list</span><span class="p">(</span><span class="n">__commands_to_run</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../jgt_tools.html#jgt_tools.env_setup.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Execute env_setup using command line args.&quot;&quot;&quot;</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">RawDescriptionHelpFormatter</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-v&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--verbose&quot;</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;show each command before it is executed&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">env_setup</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Brad Brown.
+      <span class="build">
+        
+        Build
+        <a href="https://github.com/jolly-good-toolbelt/jgt_tools/tree/0c6e5cab876700ce5c5b7d3491864020cbf272d4">0c6e5cab876700ce5c5b7d3491864020cbf272d4</a>.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
