@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "jgt_tools"
-version = "0.4.1"
+version = "0.4.2"
 description = "A collection of tools for commmon package scripts"
 authors = ["Brad Brown <brad@bradsbrown.com>"]
 license = "MIT"
