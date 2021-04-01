@@ -1,6 +1,7 @@
 """Build the documentation for a package."""
 import argparse
 import email.utils
+import importlib.util
 import itertools
 import os
 import pathlib
@@ -95,7 +96,11 @@ def build():
         shutil.rmtree(str(BASE_DIR / DOCS_OUTPUT_DIRECTORY), ignore_errors=True)
         shutil.rmtree(str(BASE_DIR / DOCS_WORKING_DIRECTORY), ignore_errors=True)
 
-    _build_conf()
+    if importlib.util.find_spec("sphinx"):
+        # Only build the conf is sphinx is an installed library,
+        # allowing non-sphinx builders to be used
+        # without orphan files being created.
+        _build_conf()
 
     _build_docs()
 
