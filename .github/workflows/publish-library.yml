@@ -1,7 +1,7 @@
 name: publish-library
 on:
   push:
-    branches: [main]
+    branches: [master]
 jobs:
   publish-library:
     runs-on: ubuntu-latest
@@ -26,7 +26,7 @@ jobs:
 
       - name: Install App and Dependencies
         if: steps.poetry-cache.outputs.cache-hit != 'true'
-        run: python env_setup.py
+        run: poetry install
 
       - name: Publish Library
         run: poetry publish -u ${{ secrets.PYPI_USER }} -p ${{ secrets.PYPI_PASS }} --build
