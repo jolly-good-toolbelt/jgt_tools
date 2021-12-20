@@ -30,7 +30,7 @@ jobs:
       - name: Install App and Dependencies
         if: steps.poetry-cache.outputs.cache-hit != 'true'
         # checks should install the local versions not, what's currently released
-        run: poetry install --extras "env_setup run_tests build_docs"
+        run: poetry install --extras "build_docs"
 
       - name: Build Docs
         run: poetry run build-docs
