@@ -1,5 +1,6 @@
 """Ensure version bump."""
 import pkg_resources
+import os
 import subprocess
 
 
@@ -31,17 +32,25 @@ def find_default_branch():
     ).splitlines()
     return [x for x in remote_info if "HEAD branch" in x][0].split(":")[1].strip()
 
+def check_default_branch(default_branch):
+    changed_files = subprocess.check_output(
+        ["git", "diff", default_branch, "--name-only"], universal_newlines=True
+    ).splitlines()
+    pyproject_diff = subprocess.check_output(
+        ["git", "diff", default_branch, "pyproject.toml"], universal_newlines=True
+    )
+    return changed_files, pyproject_diff
 
 def check_version():
     """Verify the version is changed if any code files are changed."""
     default_branch = find_default_branch()
-    changed_files = subprocess.check_output(
-        ["git", "diff", default_branch, "--name-only"], universal_newlines=True
-    ).splitlines()
+    # it seems like getting the master branch available in actions is actually rather difficult,
+    # however, origin master should be good. It may be ok just to do this even when running locally.
+    if os.getenv("GITHUB_ACTIONS") == "true":
+        changed_files, pyproject_diff = check_default_branch(f"origin/{default_branch}")
+    else:
+        changed_files, pyproject_diff = check_default_branch(default_branch)
 
-    pyproject_diff = subprocess.check_output(
-        ["git", "diff", default_branch, "pyproject.toml"], universal_newlines=True
-    )
 
     check_file_changes = _any_py_files_changed
     for entry in pkg_resources.iter_entry_points("file_checkers"):
