@@ -47,11 +47,9 @@ def check_default_branch(default_branch):
 def check_version():
     """Verify the version is changed if any code files are changed."""
     default_branch = find_default_branch()
-    default_branch = (
-        f"origin/{default_branch}"
-        if os.getenv("GITHUB_ACTIONS") == "true"
-        else default_branch
-    )
+    # if the check is running in github actions, we need to use the remote ref
+    if os.getenv("GITHUB_ACTIONS") == "true":
+        default_branch = f"origin/{default_branch}"
     changed_files, pyproject_diff = check_default_branch(default_branch)
     check_file_changes = _any_py_files_changed
     for entry in pkg_resources.iter_entry_points("file_checkers"):
