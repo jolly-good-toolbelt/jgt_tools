@@ -1,5 +1,6 @@
 """Ensure version bump."""
 import pkg_resources
+import os
 import subprocess
 
 
@@ -32,17 +33,24 @@ def find_default_branch():
     return [x for x in remote_info if "HEAD branch" in x][0].split(":")[1].strip()
 
 
-def check_version():
-    """Verify the version is changed if any code files are changed."""
-    default_branch = find_default_branch()
+def check_default_branch(default_branch):
+    """Get changed files and pyproject.toml diff for a branch."""
     changed_files = subprocess.check_output(
         ["git", "diff", default_branch, "--name-only"], universal_newlines=True
     ).splitlines()
-
     pyproject_diff = subprocess.check_output(
         ["git", "diff", default_branch, "pyproject.toml"], universal_newlines=True
     )
+    return changed_files, pyproject_diff
 
+
+def check_version():
+    """Verify the version is changed if any code files are changed."""
+    default_branch = find_default_branch()
+    # if the check is running in github actions, we need to use the remote ref
+    if os.getenv("GITHUB_ACTIONS") == "true":
+        default_branch = f"origin/{default_branch}"
+    changed_files, pyproject_diff = check_default_branch(default_branch)
     check_file_changes = _any_py_files_changed
     for entry in pkg_resources.iter_entry_points("file_checkers"):
         if entry.name == "version_trigger":
