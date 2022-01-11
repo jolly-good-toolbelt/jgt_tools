@@ -1,76 +1,36 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>JGT Tools &mdash; jgt_tools - A collection of tools for commmon package scripts 0.4.2 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>JGT Tools &mdash; jgt_tools - A collection of tools for commmon package scripts 0.5.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> jgt_tools - A collection of tools for commmon package scripts
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                0.4.2
+                0.5.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -78,18 +38,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="jgt_tools.html">jgt_tools package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jgt_tools.html#subpackages">Subpackages</a><ul>
@@ -117,77 +66,36 @@
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">jgt_tools - A collection of tools for commmon package scripts</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>JGT Tools</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/README.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="jgt-tools">
+             
+  <section id="jgt-tools">
 <h1>JGT Tools<a class="headerlink" href="#jgt-tools" title="Permalink to this headline">¶</a></h1>
 <p>JGT Tools is a collection of package helpers
 for common CLI functions
 within a properly-formatted repository.</p>
-<div class="section" id="quickstart">
+<section id="quickstart">
 <h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
 <p>Just include <code class="docutils literal notranslate"><span class="pre">jgt_tools</span></code> in your package VirtualEnv,
 and you’ll have access to these CLI calls:</p>
@@ -213,8 +121,8 @@ When <code class="docutils literal notranslate"><span class="pre">env-setup</spa
 it will check to see if each set of commands is still default,
 and if so, install the libraries those commands need.</p>
 </div>
-</div>
-<div class="section" id="run-tests">
+</section>
+<section id="run-tests">
 <h2>run-tests<a class="headerlink" href="#run-tests" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">run-tests</span></code> commands will
 pass through any additional parameters
@@ -228,8 +136,8 @@ by default <code class="docutils literal notranslate"><span class="pre">run-test
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">run</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pytest</span> <span class="o">-</span><span class="n">vvv</span> <span class="o">-</span><span class="n">s</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="documentation-index">
+</section>
+<section id="documentation-index">
 <h2>Documentation Index<a class="headerlink" href="#documentation-index" title="Permalink to this headline">¶</a></h2>
 <p>In order to get the full benefit from <code class="docutils literal notranslate"><span class="pre">build-docs</span></code>,
 it is encouraged to create an index file
@@ -239,8 +147,8 @@ and should be called <code class="docutils literal notranslate"><span class="pre
 This will be moved into the working directory for Sphinx
 and be used when building the documentation.
 Additional information can be found on the <a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/quickstart.html#defining-document-structure">Sphinx site</a>.</p>
-</div>
-<div class="section" id="configuration">
+</section>
+<section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p>A number of the actions to be called
 can be customized in a <code class="docutils literal notranslate"><span class="pre">[tool.jgt_tools]</span></code>
@@ -275,7 +183,7 @@ will be run from project root.
 To ensure your commands run as expected,
 provide any paths in your custom commands relative from root.</p>
 </div>
-<div class="section" id="build-docs-commands">
+<section id="build-docs-commands">
 <h3>build_docs_commands<a class="headerlink" href="#build-docs-commands" title="Permalink to this headline">¶</a></h3>
 <p>Specifically for <code class="docutils literal notranslate"><span class="pre">build_docs_commands</span></code>,
 there are some variables
@@ -297,8 +205,8 @@ using Python-style curly-brace formatting:</p>
 <p>builds the Sphinx API docs for the current package
 and stores the output files
 in the temporary working directory.</p>
-</div>
-<div class="section" id="check-version">
+</section>
+<section id="check-version">
 <h3>check-version<a class="headerlink" href="#check-version" title="Permalink to this headline">¶</a></h3>
 <p>In addition,
 the function to verify which files are relevant to <code class="docutils literal notranslate"><span class="pre">check-version</span></code>
@@ -325,57 +233,38 @@ and return a boolean representing if a version change should be ensured
 <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Brad Brown.
-      <span class="build">
-        
-        Build
-        <a href="https://github.com/jolly-good-toolbelt/jgt_tools/tree/0c6e5cab876700ce5c5b7d3491864020cbf272d4">0c6e5cab876700ce5c5b7d3491864020cbf272d4</a>.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2022, Brad Brown.
+      <span class="build">Build<a href="https://github.com//github/tree/2e68648bf21d4a2f8f67b15a33b131073803ed8d">2e68648bf21d4a2f8f67b15a33b131073803ed8d</a>.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

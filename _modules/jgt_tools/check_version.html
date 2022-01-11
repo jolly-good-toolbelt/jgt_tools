@@ -1,76 +1,35 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>jgt_tools.check_version &mdash; jgt_tools - A collection of tools for commmon package scripts 0.4.2 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>jgt_tools.check_version &mdash; jgt_tools - A collection of tools for commmon package scripts 0.5.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> jgt_tools - A collection of tools for commmon package scripts
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                0.4.2
+                0.5.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -78,18 +37,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../jgt_tools.html">jgt_tools package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#subpackages">Subpackages</a><ul>
@@ -117,72 +65,34 @@
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">jgt_tools - A collection of tools for commmon package scripts</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../index.html">Module code</a> &raquo;</li>
-        
       <li>jgt_tools.check_version</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <h1>Source code for jgt_tools.check_version</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Ensure version bump.&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">pkg_resources</span>
+<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
 
 
@@ -215,17 +125,24 @@
     <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">remote_info</span> <span class="k">if</span> <span class="s2">&quot;HEAD branch&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="check_version"><a class="viewcode-back" href="../../jgt_tools.html#jgt_tools.check_version.check_version">[docs]</a><span class="k">def</span> <span class="nf">check_version</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Verify the version is changed if any code files are changed.&quot;&quot;&quot;</span>
-    <span class="n">default_branch</span> <span class="o">=</span> <span class="n">find_default_branch</span><span class="p">()</span>
+<div class="viewcode-block" id="check_default_branch"><a class="viewcode-back" href="../../jgt_tools.html#jgt_tools.check_version.check_default_branch">[docs]</a><span class="k">def</span> <span class="nf">check_default_branch</span><span class="p">(</span><span class="n">default_branch</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get changed files and pyproject.toml diff for a branch.&quot;&quot;&quot;</span>
     <span class="n">changed_files</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
         <span class="p">[</span><span class="s2">&quot;git&quot;</span><span class="p">,</span> <span class="s2">&quot;diff&quot;</span><span class="p">,</span> <span class="n">default_branch</span><span class="p">,</span> <span class="s2">&quot;--name-only&quot;</span><span class="p">],</span> <span class="n">universal_newlines</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
-
     <span class="n">pyproject_diff</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
         <span class="p">[</span><span class="s2">&quot;git&quot;</span><span class="p">,</span> <span class="s2">&quot;diff&quot;</span><span class="p">,</span> <span class="n">default_branch</span><span class="p">,</span> <span class="s2">&quot;pyproject.toml&quot;</span><span class="p">],</span> <span class="n">universal_newlines</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">)</span>
+    <span class="k">return</span> <span class="n">changed_files</span><span class="p">,</span> <span class="n">pyproject_diff</span></div>
 
+
+<div class="viewcode-block" id="check_version"><a class="viewcode-back" href="../../jgt_tools.html#jgt_tools.check_version.check_version">[docs]</a><span class="k">def</span> <span class="nf">check_version</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Verify the version is changed if any code files are changed.&quot;&quot;&quot;</span>
+    <span class="n">default_branch</span> <span class="o">=</span> <span class="n">find_default_branch</span><span class="p">()</span>
+    <span class="c1"># if the check is running in github actions, we need to use the remote ref</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;GITHUB_ACTIONS&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span><span class="p">:</span>
+        <span class="n">default_branch</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;origin/</span><span class="si">{</span><span class="n">default_branch</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">changed_files</span><span class="p">,</span> <span class="n">pyproject_diff</span> <span class="o">=</span> <span class="n">check_default_branch</span><span class="p">(</span><span class="n">default_branch</span><span class="p">)</span>
     <span class="n">check_file_changes</span> <span class="o">=</span> <span class="n">_any_py_files_changed</span>
     <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">iter_entry_points</span><span class="p">(</span><span class="s2">&quot;file_checkers&quot;</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;version_trigger&quot;</span><span class="p">:</span>
@@ -238,51 +155,32 @@
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Brad Brown.
-      <span class="build">
-        
-        Build
-        <a href="https://github.com/jolly-good-toolbelt/jgt_tools/tree/0c6e5cab876700ce5c5b7d3491864020cbf272d4">0c6e5cab876700ce5c5b7d3491864020cbf272d4</a>.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2022, Brad Brown.
+      <span class="build">Build<a href="https://github.com//github/tree/2e68648bf21d4a2f8f67b15a33b131073803ed8d">2e68648bf21d4a2f8f67b15a33b131073803ed8d</a>.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
