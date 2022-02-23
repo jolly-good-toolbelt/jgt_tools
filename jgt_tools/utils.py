@@ -6,7 +6,7 @@ import shlex
 import subprocess
 import sys
 
-import tomlkit
+import tomli
 
 
 DEFAULTS_FILE = Path(__file__).parent / "data" / "defaults.csv"
@@ -64,8 +64,8 @@ def get_pyproject_config():
             f"Config file not found at: '{pyproject_path}' "
             "(must be run from project root)"
         )
-    with pyproject_path.open() as f:
-        pyproject = tomlkit.loads(f.read())
+    with pyproject_path.open(mode="rb") as f:
+        pyproject = tomli.load(f)
     return pyproject
 
 
