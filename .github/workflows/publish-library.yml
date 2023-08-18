@@ -13,7 +13,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6
+          python-version: 3.8
 
       - name: Install Poetry
         run: pip install poetry
@@ -23,8 +23,8 @@ jobs:
         id: poetry-cache
         with:
           path: ~/.cache/pypoetry
-          key: poetry-3.6-${{ hashFiles('poetry.lock', 'pyproject.toml') }}
-          restore-keys: poetry-3.6-
+          key: poetry-3.8-${{ hashFiles('poetry.lock', 'pyproject.toml') }}
+          restore-keys: poetry-3.8-
 
       - name: Install App and Dependencies
         run: poetry install
