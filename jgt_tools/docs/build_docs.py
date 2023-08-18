@@ -46,7 +46,7 @@ def _build_conf():
         itertools.chain(
             poetry["dependencies"],
             poetry.get("dev-dependencies", {}),
-            poetry.get("group", {}).get("dev", {}).get("dependencies"),
+            poetry.get("group", {}).get("dev", {}).get("dependencies", {}),
         )
     )
 
