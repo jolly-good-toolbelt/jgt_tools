@@ -43,7 +43,11 @@ def _build_conf():
     poetry = pyproject["tool"]["poetry"]
 
     dependencies = list(
-        itertools.chain(poetry["dependencies"], poetry["dev-dependencies"])
+        itertools.chain(
+            poetry["dependencies"],
+            poetry.get("dev-dependencies", {}),
+            poetry.get("group", {}).get("dev", {}).get("dependencies"),
+        )
     )
 
     conf = CONF_PY.format(
