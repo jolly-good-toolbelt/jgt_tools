@@ -17,6 +17,7 @@ ghp-import = {version = ">=0.5.5", optional = true}
 pytest = {version = ">=5.0", optional = true}
 pre-commit = {version = ">=1.15", optional = true}
 tomli = "^2.0.1"
+setuptools = "*"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^6.1.0"
