@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>jgt_tools.docs package &mdash; jgt_tools - A collection of tools for commmon package scripts 0.6.0 documentation</title>
+  <title>jgt_tools.docs package &mdash; jgt_tools - A collection of tools for commmon package scripts 0.6.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -13,9 +13,8 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -28,14 +27,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> jgt_tools - A collection of tools for commmon package scripts
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            jgt_tools - A collection of tools for commmon package scripts
           </a>
               <div class="version">
-                0.6.0
+                0.6.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -53,11 +56,35 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="jgt_tools.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jgt_tools.html#module-jgt_tools.check_version">jgt_tools.check_version module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jgt_tools.html#module-jgt_tools.env_setup">jgt_tools.env_setup module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jgt_tools.html#module-jgt_tools.run_tests">jgt_tools.run_tests module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jgt_tools.html#module-jgt_tools.self_check">jgt_tools.self_check module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jgt_tools.html#module-jgt_tools.utils">jgt_tools.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jgt_tools.html#module-jgt_tools.check_version">jgt_tools.check_version module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jgt_tools.html#jgt_tools.check_version.check_default_branch"><code class="docutils literal notranslate"><span class="pre">check_default_branch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="jgt_tools.html#jgt_tools.check_version.check_version"><code class="docutils literal notranslate"><span class="pre">check_version()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="jgt_tools.html#jgt_tools.check_version.find_default_branch"><code class="docutils literal notranslate"><span class="pre">find_default_branch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="jgt_tools.html#jgt_tools.check_version.find_remote"><code class="docutils literal notranslate"><span class="pre">find_remote()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jgt_tools.html#module-jgt_tools.env_setup">jgt_tools.env_setup module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jgt_tools.html#jgt_tools.env_setup.env_setup"><code class="docutils literal notranslate"><span class="pre">env_setup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="jgt_tools.html#jgt_tools.env_setup.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jgt_tools.html#module-jgt_tools.run_tests">jgt_tools.run_tests module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jgt_tools.html#jgt_tools.run_tests.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="jgt_tools.html#jgt_tools.run_tests.run_tests"><code class="docutils literal notranslate"><span class="pre">run_tests()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jgt_tools.html#module-jgt_tools.self_check">jgt_tools.self_check module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jgt_tools.html#jgt_tools.self_check.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="jgt_tools.html#jgt_tools.self_check.self_check"><code class="docutils literal notranslate"><span class="pre">self_check()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jgt_tools.html#module-jgt_tools.utils">jgt_tools.utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jgt_tools.html#jgt_tools.utils.execute_command_list"><code class="docutils literal notranslate"><span class="pre">execute_command_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="jgt_tools.html#jgt_tools.utils.get_pyproject_config"><code class="docutils literal notranslate"><span class="pre">get_pyproject_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="jgt_tools.html#jgt_tools.utils.load_configs"><code class="docutils literal notranslate"><span class="pre">load_configs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="jgt_tools.html#jgt_tools.utils.owner_name_from"><code class="docutils literal notranslate"><span class="pre">owner_name_from()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -81,9 +108,9 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="jgt_tools.html">jgt_tools package</a> &raquo;</li>
-      <li>jgt_tools.docs package</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="jgt_tools.html">jgt_tools package</a></li>
+      <li class="breadcrumb-item active">jgt_tools.docs package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/jgt_tools.docs.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -94,13 +121,13 @@
            <div itemprop="articleBody">
              
   <section id="module-jgt_tools.docs">
-<span id="jgt-tools-docs-package"></span><h1>jgt_tools.docs package<a class="headerlink" href="#module-jgt_tools.docs" title="Permalink to this headline">¶</a></h1>
+<span id="jgt-tools-docs-package"></span><h1>jgt_tools.docs package<a class="headerlink" href="#module-jgt_tools.docs" title="Permalink to this heading">¶</a></h1>
 <p>Tools for doc publication.</p>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="module-jgt_tools.docs.build_docs">
-<span id="jgt-tools-docs-build-docs-module"></span><h2>jgt_tools.docs.build_docs module<a class="headerlink" href="#module-jgt_tools.docs.build_docs" title="Permalink to this headline">¶</a></h2>
+<span id="jgt-tools-docs-build-docs-module"></span><h2>jgt_tools.docs.build_docs module<a class="headerlink" href="#module-jgt_tools.docs.build_docs" title="Permalink to this heading">¶</a></h2>
 <p>Build the documentation for a package.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="jgt_tools.docs.build_docs.build">
@@ -122,7 +149,7 @@
 
 </section>
 <section id="module-jgt_tools.docs.sample_conf">
-<span id="jgt-tools-docs-sample-conf-module"></span><h2>jgt_tools.docs.sample_conf module<a class="headerlink" href="#module-jgt_tools.docs.sample_conf" title="Permalink to this headline">¶</a></h2>
+<span id="jgt-tools-docs-sample-conf-module"></span><h2>jgt_tools.docs.sample_conf module<a class="headerlink" href="#module-jgt_tools.docs.sample_conf" title="Permalink to this heading">¶</a></h2>
 <p>Sphinx conf.py template.</p>
 </section>
 </section>
@@ -138,8 +165,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Brad Brown.
-      <span class="build">Build<a href="https://github.com//github/tree/85d6ae3e47a5b0747c678dd153f045de291aee86">85d6ae3e47a5b0747c678dd153f045de291aee86</a>.
+    <p>&#169; Copyright 2023, Brad Brown.
+      <span class="build">Build<a href="https://github.com//github/tree/25d0d59ca2afd0f0215083e365f092f051d6bd37">25d0d59ca2afd0f0215083e365f092f051d6bd37</a>.
       </span></p>
   </div>
 

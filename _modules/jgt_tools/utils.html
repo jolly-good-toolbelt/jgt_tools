@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>jgt_tools.utils &mdash; jgt_tools - A collection of tools for commmon package scripts 0.6.0 documentation</title>
+  <title>jgt_tools.utils &mdash; jgt_tools - A collection of tools for commmon package scripts 0.6.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
@@ -12,9 +12,8 @@
   <![endif]-->
   
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -25,14 +24,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> jgt_tools - A collection of tools for commmon package scripts
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            jgt_tools - A collection of tools for commmon package scripts
           </a>
               <div class="version">
-                0.6.0
+                0.6.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -50,11 +53,35 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.check_version">jgt_tools.check_version module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.env_setup">jgt_tools.env_setup module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.run_tests">jgt_tools.run_tests module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.self_check">jgt_tools.self_check module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.utils">jgt_tools.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.check_version">jgt_tools.check_version module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.html#jgt_tools.check_version.check_default_branch"><code class="docutils literal notranslate"><span class="pre">check_default_branch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.html#jgt_tools.check_version.check_version"><code class="docutils literal notranslate"><span class="pre">check_version()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.html#jgt_tools.check_version.find_default_branch"><code class="docutils literal notranslate"><span class="pre">find_default_branch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.html#jgt_tools.check_version.find_remote"><code class="docutils literal notranslate"><span class="pre">find_remote()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.env_setup">jgt_tools.env_setup module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.html#jgt_tools.env_setup.env_setup"><code class="docutils literal notranslate"><span class="pre">env_setup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.html#jgt_tools.env_setup.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.run_tests">jgt_tools.run_tests module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.html#jgt_tools.run_tests.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.html#jgt_tools.run_tests.run_tests"><code class="docutils literal notranslate"><span class="pre">run_tests()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.self_check">jgt_tools.self_check module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.html#jgt_tools.self_check.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.html#jgt_tools.self_check.self_check"><code class="docutils literal notranslate"><span class="pre">self_check()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../jgt_tools.html#module-jgt_tools.utils">jgt_tools.utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.html#jgt_tools.utils.execute_command_list"><code class="docutils literal notranslate"><span class="pre">execute_command_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.html#jgt_tools.utils.get_pyproject_config"><code class="docutils literal notranslate"><span class="pre">get_pyproject_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.html#jgt_tools.utils.load_configs"><code class="docutils literal notranslate"><span class="pre">load_configs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jgt_tools.html#jgt_tools.utils.owner_name_from"><code class="docutils literal notranslate"><span class="pre">owner_name_from()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -78,9 +105,9 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Module code</a> &raquo;</li>
-      <li>jgt_tools.utils</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">jgt_tools.utils</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -105,7 +132,7 @@
 
 
 <div class="viewcode-block" id="execute_command_list"><a class="viewcode-back" href="../../jgt_tools.html#jgt_tools.utils.execute_command_list">[docs]</a><span class="k">def</span> <span class="nf">execute_command_list</span><span class="p">(</span><span class="n">commands_to_run</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Execute each command in the list.</span>
 
 <span class="sd">    If any command fails, print a helpful message and exit with that status.</span>
@@ -149,7 +176,7 @@
 
 
 <div class="viewcode-block" id="get_pyproject_config"><a class="viewcode-back" href="../../jgt_tools.html#jgt_tools.utils.get_pyproject_config">[docs]</a><span class="k">def</span> <span class="nf">get_pyproject_config</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Get the config data from the project&#39;s pyproject.toml file.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the config data from the project&#39;s pyproject.toml file.&quot;&quot;&quot;</span>
     <span class="n">pyproject_path</span> <span class="o">=</span> <span class="n">PACKAGE_ROOT_PATH</span> <span class="o">/</span> <span class="s2">&quot;pyproject.toml&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">pyproject_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
         <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
@@ -162,7 +189,7 @@
 
 
 <div class="viewcode-block" id="load_configs"><a class="viewcode-back" href="../../jgt_tools.html#jgt_tools.utils.load_configs">[docs]</a><span class="k">def</span> <span class="nf">load_configs</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Build configs from defaults and pyproject.toml.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Build configs from defaults and pyproject.toml.&quot;&quot;&quot;</span>
     <span class="n">pyproject</span> <span class="o">=</span> <span class="n">get_pyproject_config</span><span class="p">()</span>
 
     <span class="n">poetry</span> <span class="o">=</span> <span class="n">pyproject</span><span class="p">[</span><span class="s2">&quot;tool&quot;</span><span class="p">][</span><span class="s2">&quot;poetry&quot;</span><span class="p">]</span>
@@ -184,7 +211,7 @@
 
 
 <div class="viewcode-block" id="owner_name_from"><a class="viewcode-back" href="../../jgt_tools.html#jgt_tools.utils.owner_name_from">[docs]</a><span class="k">def</span> <span class="nf">owner_name_from</span><span class="p">(</span><span class="n">origin_url</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Extract the owner name from a git origin URL.</span>
 
 <span class="sd">    The git origin URL might be in ``git+ssh`` form, or ``https`` form.</span>
@@ -217,8 +244,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Brad Brown.
-      <span class="build">Build<a href="https://github.com//github/tree/85d6ae3e47a5b0747c678dd153f045de291aee86">85d6ae3e47a5b0747c678dd153f045de291aee86</a>.
+    <p>&#169; Copyright 2023, Brad Brown.
+      <span class="build">Build<a href="https://github.com//github/tree/25d0d59ca2afd0f0215083e365f092f051d6bd37">25d0d59ca2afd0f0215083e365f092f051d6bd37</a>.
       </span></p>
   </div>
 
